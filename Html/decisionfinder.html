@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/decisionfinder.css">
+    <script src="../Javascript/slider.js"></script>
+    <script src="../Javascript/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- <h1>Entscheidungsfinder</h1> -->
+    <div class="questionwindow">
+        <div class="sidebar">
+            <div class="directory">
+                <div>  DigitalOcean</div>
+                <div>  Grundlagen</div>
+                <div>  Kubernetes</div>
+                <div>  Dockerfile</div>
+                <div>  Docker</div>
+                <div>  Logging</div>
+                <div>  Hardware</div>
+                <div>  Sicherheit</div>
+                <div>  Speicher</div>
+                <div>  Lokale Entwicklung</div>
+            </div>
+            <progress max="10" value="1"></progress>
+        </div>
+        <div class="wrapper">
+            <!-- <div class="fundamentals"> -->
+            <div class="item" id="hostingart">
+                <p>Soll die Anwendung über einen Hostinganbieter oder einen eigenen Server gehostet werden
+                </p>
+                <div class="choices">
+                    <a href="#hostinganbieter" class="button-main"
+                        onclick="testcall(0, 'Hostinganbieter', 'fundamentals')">
+                        Hostinganbieter</a>
+                    <a href="#hostingtechnologie" class="button-main"
+                        onclick="testcall(0, 'Eigener Server', 'fundamentals')">
+                        Eigener
+                        Server</a>
+                </div>
+            </div>
+            <div class="item" id="hostinganbieter">
+                <p> Welcher Hostinganbieter soll genutzt werden? <br>
+                    Hinweis: Da der praktische Teil der Arbeit über DigitalOcean durchgeführt wurde, sind hier die
+                    meisten
+                    Entscheidungsmöglichkeiten zu finden.
+                </p>
+                <div class="choices">
+                    <a href="#hostingtechnologie" class="button-main"
+                        onclick="testcall(1, 'DigitalOcean', 'fundamentals')">
+                        DigitalOcean</a>
+                    <a href="#hostingtechnologie" class="button-main"
+                        onclick="testcall(1, 'Amazon Web Services', 'fundamentals')"> Amazon
+                        Web
+                        Services</a>
+                    <a href="#hostingtechnologie" class="button-main"
+                        onclick="testcall(1, 'Google Cloud Platform', 'fundamentals')"> Google
+                        Cloud Platform</a>
+                    <a href="#hostingtechnologie" class="button-main"
+                        onclick="testcall(1, 'Microsoft Azure', 'fundamentals')">
+                        Microsoft
+                        Azure</a>
+                    <a href="#hostingtechnologie" class="button-main"
+                        onclick="testcall(1, 'Andere Plattform', 'fundamentals')">
+                        Andere
+                        Plattform</a>
+                </div>
+            </div>
+            <div class="item" id="hostingtechnologie">
+                <p>Wie soll die Anwendung gehostet werden?
+                </p>
+                <div class="choices">
+                    <a href="#orchestration-platform" class="button-main"
+                        onclick="testcall(2, 'Hosting im Cluster', 'fundamentals')">
+                        Hosting
+                        im Cluster</a>
+                    <a href="#endcard-fundamentals" class="button-main"
+                        onclick="testcall(2, 'Hosting als Containeranwendung', 'fundamentals'), displayValues('fundamentals')">
+                        Hosting als
+                        Containeranwendung</a>
+                </div>
+            </div>
+            <div class="item" id="orchestration-platform">
+                <p>Welche Container Orchestration Platform soll genutzt werden? <br>
+                    Kubernetes ist eine komplexere Containertechnologie als z.B. Docker Swarm, allerdings bietet sie
+                    mehr
+                    Funktionen, hat Schlüsselfunktionen wie Self Healing und besitzt ein großes Ökosystem.
+                    Daher eignet sich die Technologie für größere oder komplexere Cluster.
+                </p>
+                <div class="choices">
+                    <a href="#do-hosting" class="button-main" onclick="testcall(3, 'Kubernetes', 'fundamentals')">
+                        Kubernetes</a>
+                    <a href="#endcard-fundamentals" class="button-main"
+                        onclick="testcall(3, 'Docker Swarm', 'fundamentals'), displayValues('fundamentals')"> Docker
+                        Swarm</a>
+                    <a href="#endcard-fundamentals" class="button-main"
+                        onclick="testcall(3, 'Andere Orchestration Plattform', 'fundamentals'), displayValues('fundamentals')">
+                        Andere Orchestration
+                        Plattform</a>
+                </div>
+            </div>
+            <!-- todo das automatisch im array überprüfen -->
+            <div class="item" id="do-hosting">
+                <p>Wird DigitalOcean als Hostinganbieter genutzt?
+                </p>
+                <div class="choices">
+                    <a href="#endcard-fundamentals" class="button-main"
+                        onclick="testcall(4, 'DigitalOcean wird als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
+                        Ja</a>
+                    <a href="#endcard-fundamentals" class="button-main"
+                        onclick="testcall(4, 'DigitalOcean wird nicht als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="endcard-fundamentals">
+                <p>When I was a young boy, my father
+                    Took me into the city to see a marching band
+                    He said, "Son, when you grow up, would you be
+                    The savior of the broken, the beaten, and the damned?"
+                </p>
+                <div id="display-fundamentals"></div>
+                <a href="#serverstandort" class="button-main" onclick=""> pdf erstellen</a>
+            </div>
+
+
+
+            <!-- </div> -->
+            <!-- <div class="kubernetes-digitalocean"> -->
+            <div class="item" id="serverstandort">
+                <p>Welcher Serverstandort soll für die Anwendung genutzt werden? <br>
+                    Bezüglich des Serverstandorts gibt es je nach der Zielkundengruppe verschiedene Möglichkeiten.
+                    Generell
+                    ist für inländische Kunden der Standort Frankfurt zu empfehlen.
+                </p>
+                <div class="choices">
+                    <a href="#nodeart" class="button-main"
+                        onclick="testcall(0, 'Deutschland/Frankfurt', 'kubernetes-digitalocean')">
+                        Deutschland/Frankfurt</a>
+                    <a href="#nodeart" class="button-main" onclick="testcall(0, 'Europa', 'kubernetes-digitalocean')">
+                        Europa</a>
+                    <a href="#nodeart" class="button-main"
+                        onclick="testcall(0, 'Nordamerika', 'kubernetes-digitalocean')">
+                        Nordamerika</a>
+                    <a href="#nodeart" class="button-main" onclick="testcall(0, 'Asien', 'kubernetes-digitalocean')">
+                        Asien</a>
+                </div>
+            </div>
+            <div class="item" id="nodeart">
+                <p>Welche Art an Nodes soll eingesetzt werden? <br>
+                    Es existieren verschiedene Varianten der Nodes, welche für unterschiedliche Anforderungen von
+                    Anwendungen optimiert wurden.
+                </p>
+                <div class="choices">
+                    <a href="#leistung-nodes" class="button-main"
+                        onclick="testcall(1, 'Standardknoten', 'kubernetes-digitalocean')">
+                        Standardknoten</a>
+                    <a href="#leistung-nodes" class="button-main"
+                        onclick="testcall(1, 'CPU-optimierte Knoten', 'kubernetes-digitalocean')">
+                        CPU-optimierte Knoten</a>
+                    <a href="#leistung-nodes" class="button-main"
+                        onclick="testcall(1, 'RAM-optimierte Knoten', 'kubernetes-digitalocean')"> RAM-optimierte
+                        Knoten</a>
+                    <a href="#leistung-nodes" class="button-main"
+                        onclick="testcall(1, 'Speicheroptimierte Knoten', 'kubernetes-digitalocean')">
+                        Speicheroptimierte Knoten</a>
+                    <a href="#leistung-nodes" class="button-main"
+                        onclick="testcall(1, 'Universaler Knoten', 'kubernetes-digitalocean')">
+                        Universaler Knoten</a>
+                </div>
+            </div>
+            <div class="item" id="leistung-nodes">
+                <p>Welcher Leistung sollen die Knoten haben? <br>
+                    Es existieren verschiedene Angebote an Rechenleistung. Diese sind in den grundlegenden Plan (1-2 Gb
+                    Ram
+                    und 1-2 vCPUs) und den Premium Plan (6-13 Gb Ram und 4-8 vCPUs) unterteit.
+                </p>
+                <div class="choices">
+                    <a href="#autoscaling-digitalocean" class="button-main"
+                        onclick="testcall(2, 'Grundlegend', 'kubernetes-digitalocean')">
+                        Grundlegend</a>
+                    <a href="#autoscaling-digitalocean" class="button-main"
+                        onclick="testcall(2, 'Premium', 'kubernetes-digitalocean')">
+                        Premium</a>
+                </div>
+            </div>
+            <div class="item" id="autoscaling-digitalocean">
+                <p>Soll im Cluster Autoscaling angewendet werden? <br>
+                    Autoscaling bezeichnet das automatische Hinzufügen und Entfernen von Knoten, wenn keine Pods mehr
+                    gescheduled werden können.
+                </p>
+                <div class="choices">
+                    <a href="#high-avaliability-digitalocean" class="button-main"
+                        onclick="testcall(3, 'Ja', 'kubernetes-digitalocean')">
+                        Ja</a>
+                    <a href="#high-avaliability-digitalocean" class="button-main"
+                        onclick="testcall(3, 'Nein', 'kubernetes-digitalocean')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="high-avaliability-digitalocean">
+                <p>Soll die Funktion der High Avaliability hinzugebucht werden? <br>
+                    Erhöhung der Zuverlässigkeit kritischer Workloads. Der Preis dafür beträgt 40$. Nach der Wahl der
+                    Option
+                    ist diese nicht mehr kündbar.
+                </p>
+                <div class="choices">
+                    <a href="#zertifikatmanagement" class="button-main"
+                        onclick="testcall(4, 'Ja', 'kubernetes-digitalocean')">
+                        Ja</a>
+                    <a href="#zertifikatmanagement" class="button-main"
+                        onclick="testcall(4, 'Nein', 'kubernetes-digitalocean')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="zertifikatmanagement">
+                <p>Wie ist das Zertifikatmanagement geplant? <br>
+                    Wenn über das Comand Line Interface eine Verbindung hergestellt werden soll, muss dafür ein
+                    Zertifikat
+                    im System hinterlegt werden. Das Zertifikatmanagement lässt sich entweder automatisiert oder manuell
+                    ausführen. Manuell hinterlegte Zertifikate sind jeweils eine Woche gültig.
+                </p>
+                <div class="choices">
+                    <a href="#updates" class="button-main"
+                        onclick="testcall(5, 'Automatische Erneuerung', 'kubernetes-digitalocean')">
+                        Automatische Erneuerung</a>
+                    <a href="#updates" class="button-main"
+                        onclick="testcall(5, 'Manuelle Erneuerung', 'kubernetes-digitalocean')">
+                        Manuelle Erneuerung</a>
+                </div>
+            </div>
+            <div class="item" id="updates">
+                <p>Sollen Minorversionen von Kubernetes automatisch geupdated werden?
+                </p>
+                <div class="choices">
+                    <a href="#kennzahlendetails" class="button-main"
+                        onclick="testcall(6, 'Ja', 'kubernetes-digitalocean')">
+                        Ja</a>
+                    <a href="#kennzahlendetails" class="button-main"
+                        onclick="testcall(6, 'Nein', 'kubernetes-digitalocean')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="kennzahlendetails">
+                <p>Wie hoch soll der Detailgrad der angezeigten Kennzahlen sein? <br>
+                    Grundlegende Kennzahlen beinhalten die CPU Nutzung, den Belastungsdurchschnitt oder die Bandweite.
+                    Erweiterte Metriken bieten Kennzahlen zum Status des Deployments.
+                </p>
+                <div class="choices">
+                    <a href="#endcard-digitalocean" class="button-main"
+                        onclick="testcall(7, 'Grundlegende Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
+                        Grundlegende Kennzahlen</a>
+                    <a href="#endcard-digitalocean" class="button-main"
+                        onclick="testcall(7, 'Erweiterte Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
+                        Erweiterte Kennzahlen</a>
+                </div>
+            </div>
+
+            <div class="item" id="endcard-digitalocean">
+                <p>When I was a young boy, my father
+                    Took me into the city to see a marching band
+                    He said, "Son, when you grow up, would you be
+                    The savior of the broken, the beaten, and the damned?"
+                </p>
+                <div id="display-digitalocean"></div>
+                <!-- pdf styling machen -->
+                <!-- <a href="#endcard" class="button-main" onclick="createPdf()" > pdf erstellen</a> -->
+                <a href="#configmap" class="button-main" onclick=""> pdf erstellen</a>
+            </div>
+            <!-- </div> -->
+
+
+            <!-- <div class="kubernetes"> -->
+            <div class="item" id="configmap">
+                <p>Soll zusätzlich zur ConfigMap eine Secret Datei angelegt werden? <br>
+                    In der ConfigMap werden Informationen bzgl. der Konfiguration des Clusters gespeichert. Wenn
+                    vertrauliche Daten wie Passwörter hinterlegt werden sollen, eignet sich dafür eine zusätzliche
+                    Secret
+                    Datei.
+                </p>
+                <div class="choices">
+                    <a href="#autoscaling-kubernetes" class="button-main" onclick="testcall(0, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#autoscaling-kubernetes" class="button-main" onclick="testcall(0, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <!-- todo überprüfen, ob bei DO Autoscaling dabei ist -->
+            <div class="item" id="autoscaling-kubernetes">
+                <p>Soll Autoscaling aktiviert werden? <br>
+                    Automatisches Hinzufügen und Entfernen von Knoten, wenn keine Pods mehr gescheduled werden können.
+                </p>
+                <div class="choices">
+                    <a href="#health-checks-kubernetes" class="button-main" onclick="testcall(1, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#health-checks-kubernetes" class="button-main" onclick="testcall(1, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="health-checks-kubernetes">
+                <p>Sollen Health Checks Durchgeführt werden? <br>
+                    Health Checks werden dazu eingesetzt, um zu überprüfen, ob ein Pod in einem funktionierenden Zustand
+                    ist
+                    oder nicht. Lifeness Probes überprüfen, ob der Pod funktionsfähig ist.
+                    Readiness Probes überprüfen, ob der Pod bereit ist, Traffic zu empfangen.
+
+                </p>
+                <div class="choices">
+                    <a href="#high-avaliability-kubernetes" class="button-main"
+                        onclick="testcall(2, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#high-avaliability-kubernetes" class="button-main"
+                        onclick="testcall(2, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="high-avaliability-kubernetes">
+                <p>Soll das Cluster eine besondere Verfügbarkeit haben? <br>
+                    Im Falle eines Ausfalls von Komponenten kann durch Redundante Nodes, Load Balancing oder Self
+                    Healing
+                    dennoch der Service fehlerfrei angeboten werden.
+                </p>
+                <div class="choices">
+                    <a href="#backup" class="button-main" onclick="testcall(3, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#backup" class="button-main" onclick="testcall(3, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="backup">
+                <p>Sollen Backups der Anwendung erstellt werden? <br>
+                    Für einen möglichen Ausfall können Backupdaten erstellt werden. Anwendungsdaten lassen sich in einer
+                    externenen über das Cluster werden in dem etcd Verzeichnis gespeichert. Außerdem können Backupools
+                    wie
+                    z. B. Velero genutzt werden.
+                </p>
+                <div class="choices">
+                    <a href="#central-monitoring" class="button-main" onclick="testcall(4, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#central-monitoring" class="button-main" onclick="testcall(4, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="central-monitoring">
+                <p>Soll zentrales Monitoring möglich sein? <br>
+                    Über das einzufügende Kubernetes Dashboard lassen sich wichtige Daten wie die CPU Nutzung in einer
+                    grafischen Benutzeroberfläche auswerten. Außerdem können andere Tools wie Prometheus genutzt werden.
+
+                </p>
+                <div class="choices">
+                    <a href="#central-logging" class="button-main" onclick="testcall(5, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#central-logging" class="button-main" onclick="testcall(5, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="central-logging">
+                <p>Sollen Loggingdaten zentral gespeichert werden? <br>
+                    Um eine gute Übersicht über das Clusterhalten zu erlangen, sollten die Logs der Nodes und Pods an
+                    einem
+                    zentralen Ort gespeichert werden, um deren Auswertung zu vereinfachen.
+                    Beispiele für Loggingtools sind Graylog oder Fludentd.
+
+
+                </p>
+                <div class="choices">
+                    <a href="#central-audit" class="button-main" onclick="testcall(6, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#central-audit" class="button-main" onclick="testcall(6, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="central-audit">
+                <p>Soll es eine Übersicht über Nutzeränderungen geben? <br>
+                    Wenn mehrere Nutzer*innen administrativ am System beteiligt sind, ist es hilfreich, über eine
+                    Protokoll
+                    festzuhalten, wer an der Anwendung Änderungen durchgeführt hat.
+                </p>
+                <div class="choices">
+                    <a href="#automated-operations" class="button-main" onclick="testcall(7, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#automated-operations" class="button-main" onclick="testcall(7, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="automated-operations">
+                <p>Soll der Code automatisch verwaltet werden? <br>
+                    Neuer Code und Konfigurationsdateien können direkt über ein Git-Repository implementiert und
+                    geupdatet
+                    werden.
+
+                </p>
+                <div class="choices">
+                    <a href="#cicd" class="button-main" onclick="testcall(8, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#cicd" class="button-main" onclick="testcall(8, 'Nein', 'kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="cicd">
+                <p>Soll eine CI/CD Pipeline implementiert werden? <br>
+                    Durch eine CI/CD Pipeline lässt sich der Bereitstellungsprozess von Software automatisieren und
+                    vereinfachen.
+
+                </p>
+                <div class="choices">
+                    <a href="#cicd-tools" class="button-main" onclick="testcall(9, 'Ja', 'kubernetes')">
+                        Ja</a>
+                    <a href="#endcard-kubernetes" class="button-main"
+                        onclick="testcall(9, 'Nein', 'kubernetes'), displayValues('kubernetes')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="cicd-tools">
+                <p>Welches CI/CD Tool soll eingesetzt werden?
+                </p>
+                <div class="choices">
+                    <a href="#endcard-kubernetes" class="button-main"
+                        onclick="testcall(10, 'Jenkins', 'kubernetes'), displayValues('kubernetes')">
+                        Jenkins</a>
+                    <a href="#endcard-kubernetes" class="button-main"
+                        onclick="testcall(10, 'GitLab', 'kubernetes'), displayValues('kubernetes')">
+                        GitLab</a>
+                    <a href="#endcard-kubernetes" class="button-main"
+                        onclick="testcall(10, 'Anderes Tool', 'kubernetes'), displayValues('kubernetes')">
+                        Anderes Tool</a>
+                </div>
+            </div>
+
+            <div class="item" id="endcard-kubernetes">
+                <p>When I was a young boy, my father
+                    Took me into the city to see a marching band
+                    He said, "Son, when you grow up, would you be
+                    The savior of the broken, the beaten, and the damned?"
+                </p>
+                <div id="display-kubernetes"></div>
+                <!-- pdf styling machen -->
+                <a href="#base-image" class="button-main" onclick=""> pdf erstellen</a>
+            </div>
+            <!-- </div> -->
+
+
+            <!-- <div class="dockerfile"> -->
+            <div class="item" id="base-image">
+                <p>Wie soll das Base Image gestaltet sein? <br>
+                    Unterste Schicht der Containerarchitektur, auf die der Rest der Anwendung aufbaut. So lassen sich
+                    Grundlagen wie AlpineJs, Redis oder MongoDB einbinden.
+                    <br> Die Plattform <a href="https://hub.docker.com"> Docker Hub</a> bietet viele verschiedene Base
+                    Images, die in das Dockerfile eingebunden werden können.
+                </p>
+                <div class="choices">
+                    <a href="#health-checks-docker" class="button-main"
+                        onclick="testcall(0, 'Nutzung eines existierenden Base Images', 'dockerfile')">
+                        Nutzung eines existierenden Base Images</a>
+                    <a href="#health-checks-docker" class="button-main"
+                        onclick="testcall(0, 'Neuerstellung eines Base Images', 'dockerfile')">
+                        Neuerstellung eines Base Images</a>
+                </div>
+            </div>
+            <div class="item" id="health-checks-docker">
+                <p>Sollen für Dockercontainer Health Checks eingesetzt werden? <br>
+                    Durch einen Health Check kann die Funktionsfähigkeit von betriebenen Containern überprüft werden.
+                </p>
+                <div class="choices">
+                    <a href="#multi-stage-build" class="button-main" onclick="testcall(1, 'Ja', 'dockerfile')">
+                        Ja</a>
+                    <a href="#multi-stage-build" class="button-main" onclick="testcall(1, 'Nein', 'dockerfile')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="multi-stage-build">
+                <p>Soll der Image Buildprozess in mehreren Stufen ablaufen? <br>
+                    Während des Buildprozesses werden mehrere Images erstellt, nur das letzte wird übernommen. Dies ist
+                    nützlich, wenn es Z.B. Inhalte im Projekt gibt, die für das Generieren des Images nötig sind, aber
+                    nicht
+                    für den weiteren Betrieb.
+                </p>
+                <div class="choices">
+                    <a href="#security" class="button-main" onclick="testcall(2, 'Ja', 'dockerfile')">
+                        Ja</a>
+                    <a href="#security" class="button-main" onclick="testcall(2, 'Nein', 'dockerfile')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="security">
+                <p>Sollen bestimmte Sicherheitseinstellungen vorgenommen werden? <br>
+                    Die Einstellungen werden noch eingefügt
+                </p>
+                <div class="choices">
+                    <a href="#hardware" class="button-main" onclick="testcall(3, 'Ja', 'dockerfile')">
+                        Wird noch eingefügt</a>
+                    <a href="#hardware" class="button-main" onclick="testcall(3, 'Nein', 'dockerfile')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="hardware">
+                <p>Gibt es spezielle Hardwareanforderungen? <br>
+                </p>
+                <div class="choices">
+                    <a href="#cpu-architecture" class="button-main" onclick="testcall(4, 'Ja', 'dockerfile')">
+                        Ja</a>
+                    <a href="#speicher" class="button-main" onclick="testcall(4, 'Nein', 'dockerfile')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <!-- <div class="hardware"> -->
+            <div class="item" id="cpu-architecture">
+                <p>Wird eine spezielle CPU Architektur vorrausgesetzt? <br>
+                    Es werden x86, x86-64, ARM, ARM64, PowerPC LE und IBMs POWER und Z Architekturen unterstützt. Bei
+                    Docker Hub lassen sich Base Images nach deren Architektur filtern.
+                </p>
+                <div class="choices">
+                    <a href="#software-aging" class="button-main" onclick="testcall(0, 'Ja', 'hardware')">
+                        Ja</a>
+                    <a href="#software-aging" class="button-main" onclick="testcall(0, 'Nein', 'hardware')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="software-aging">
+                <p>Treten Probleme mit Software Aging auf? <br>
+                    Eine Anpassung der Reeboothäufigkeit der Anwendung führt zu einer Verringerung des Software Agings
+                </p>
+                <div class="choices">
+                    <a href="#remote-computing" class="button-main" onclick="testcall(1, 'Ja', 'hardware')">
+                        Ja</a>
+                    <a href="#remote-computing" class="button-main" onclick="testcall(1, 'Nein', 'hardware')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="remote-computing">
+                <p>Wird Remote Computing eingesetzt? <br>
+                    Es lassen sich Software Guard Extensions aktivieren, welche Remote Computing auf nicht
+                    vertrauenswürdigen fremden Geräten durch gesicherte Container ermöglichen.
+                </p>
+                <div class="choices">
+                    <a href="#speicher" class="button-main" onclick="testcall(2, 'Ja', 'hardware')">
+                        Ja</a>
+                    <a href="#speicher" class="button-main" onclick="testcall(2, 'Nein', 'hardware')">
+                        Nein</a>
+                </div>
+            </div>
+
+
+            <!-- </div> -->
+
+            <div class="item" id="speicher">
+                <p>Wie soll der Speicher konfiguriert werden? <br>
+                    Fragen zum Speicher werden noch eingefügt.
+                </p>
+                <div class="choices">
+                    <a href="#endcard-dockerfile" class="button-main"
+                        onclick="testcall(5, 'Ja', 'dockerfile'), displayValues('dockerfile')">
+                        Wird noch eingefügt</a>
+                    <a href="#endcard-dockerfile" class="button-main"
+                        onclick="testcall(5, 'Nein', 'dockerfile'), displayValues('dockerfile')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="endcard-dockerfile">
+                <p>When I was a young boy, my father
+                    Took me into the city to see a marching band
+                    He said, "Son, when you grow up, would you be
+                    The savior of the broken, the beaten, and the damned?"
+                </p>
+                <div id="display-dockerfile"></div>
+                <!-- pdf styling machen -->
+                <!-- <a href="#endcard" class="button-main" onclick="createPdf()" > pdf erstellen</a> -->
+                <a href="#logging" class="button-main" onclick=""> pdf erstellen</a>
+            </div>
+            <!-- </div> -->
+
+            <!-- <div class="logging"> -->
+            <div class="item" id="logging">
+                <p>Wie soll das Logging für die Dockercontainer gestaltet sein?
+                </p>
+                <div class="choices">
+                    <a href="#loggingtreiber" class="button-main"
+                        onclick="testcall(0, 'Auswahl eines Loggingtreibers', 'logging')">
+                        Auswahl eines Loggingtreibers</a>
+                    <a href="#loggingtool" class="button-main"
+                        onclick="testcall(0, 'Nutzung eines Loggingtools', 'logging')">
+                        Nutzung eines Loggingtools</a>
+                </div>
+            </div>
+            <div class="item" id="loggingtreiber">
+                <p>Welcher Loggingtreiber soll genutzt werden? <br>
+                    <!-- <img src="../Assets/Loggingtreiber cochrane.png"> -->
+                    <!-- todo loggingimage stylen -->
+                    Diese Aufzählung und Beschreibung der Loggingtreiber wurde aus dem Kapitel “Selecting the logging
+                    driver
+                    for containers” aus Cochrane, K., Celladhurai, J., Khare, N.: Docker Cookbook – Second Edition.
+                    Packt
+                    Publishing, Birmingham, 2018 übernommen. <br>
+                    Die Beschreibungen werden noch hinzugefügt
+                </p>
+                <div class="choices choices-logging">
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'Kein Treiber', 'logging'), displayValues('logging')">
+                        Kein Treiber</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'json-file', 'logging'), displayValues('logging')">
+                        json-file</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'syslog', 'logging'), displayValues('logging')">
+                        syslog</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'journald', 'logging'), displayValues('logging')">
+                        journald</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'gelf', 'logging'), displayValues('logging')">
+                        gelf</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'fluentd', 'logging'), displayValues('logging')">
+                        fluentd</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'awslogs', 'logging'), displayValues('logging')">
+                        awslogs</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'splunk', 'logging'), displayValues('logging')">
+                        splunk</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'etwlogs', 'logging'), displayValues('logging')">
+                        etwlogs</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'gcplogs', 'logging'), displayValues('logging')">
+                        gcplogs</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(1, 'logentries', 'logging'), displayValues('logging')">
+                        logentries</a>
+                </div>
+            </div>
+            <div class="item" id="loggingtool">
+                <p>Welches Loggingtool soll genutzt werden
+                    <!-- todo links für die Einzelnen Tools einfügen -->
+                </p>
+                <div class="choices">
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(2, 'ELK Stack', 'logging'), displayValues('logging')">
+                        ELK Stack</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(2, 'Sematext', 'logging'), displayValues('logging')">
+                        Sematext</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(2, 'Logstash', 'logging'), displayValues('logging')">
+                        Logstash</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(2, 'Filebeat', 'logging'), displayValues('logging')">
+                        Filebeat</a>
+                    <a href="#endcard-logging" class="button-main"
+                        onclick="testcall(2, 'Anderes Loggingtool', 'logging'), displayValues('logging')">
+                        Anderes Loggingtool</a>
+                </div>
+            </div>
+
+            <div class="item" id="endcard-logging">
+                <p>When I was a young boy, my father
+                    Took me into the city to see a marching band
+                    He said, "Son, when you grow up, would you be
+                    The savior of the broken, the beaten, and the damned?"
+                </p>
+                <div id="display-logging"></div>
+                <a href="#docker-desktop" class="button-main" onclick=""> pdf erstellen</a>
+            </div>
+            <!-- </div> -->
+
+            <!-- <div class="local"> -->
+            <div class="item" id="docker-desktop">
+                <p>Soll Docker Desktop verwendet werden? <br>
+                    Docker Desktop ist ein Programm zum Management von Container-anwendungen. Durch seine grafische
+                    Oberfläche bietet es eine bessere Übersicht als das Command Line Interface.
+                </p>
+                <div class="choices">
+                    <a href="#docker-toolbox" class="button-main" onclick="testcall(0, 'Ja', 'local')">
+                        Ja</a>
+                    <a href="#minikube" class="button-main" onclick="testcall(0, 'Nein', 'local')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="docker-toolbox">
+                <p>Welcher Desktopversion soll verwendet werden? <br>
+                    Bei älteren Betriebssystemen ist Docker Desktop nicht verfügbar. Stattdessen kann Docker Toolbox
+                    eingesetzt werden. Bei macOS ist die Mindestanforderung Version 10.15. Bei Windows muss mindestens
+                    Windows 10 genutzt werden.
+                </p>
+                <div class="choices">
+                    <a href="#minikube" class="button-main" onclick="testcall(1, 'Docker Desktop', 'local')">
+                        Docker Desktop</a>
+                    <a href="#minikube" class="button-main" onclick="testcall(1, 'Docker Toolbox', 'local')">
+                        Docker Toolbox</a>
+                </div>
+            </div>
+            <div class="item" id="minikube">
+                <p>Soll beim Einsatz von Kubernetes minikube installiert werden? <br>
+                    Minikube ist eine Implementierung von Kubernetes, welche durch die Nutzung einer virtuellen Maschine
+                    den lokalen Einsatz von Kubernetesclustern ermöglicht. Auch Docker Desktop hat die Funktion inne,
+                    Cluster zu betreiben.
+                </p>
+                <div class="choices">
+                    <a href="#docker-edition" class="button-main" onclick="testcall(2, 'Ja', 'local')">
+                        Ja</a>
+                    <a href="#docker-edition" class="button-main" onclick="testcall(2, 'Nein', 'local')">
+                        Nein</a>
+                </div>
+            </div>
+            <div class="item" id="docker-edition">
+                <p>Welche Dockeredition soll verwendet werden? <br>
+                    Docker Community ist kostenlos und für Entwickler konzipiert. Die Enterprise Version ist eine
+                    Container as a Service Lösung, welche mit der Universal Control Plane ein Interface zum Managen von
+                    Containern und Containerclustern bietet.
+                </p>
+                <div class="choices">
+                    <a href="#endcard-local" class="button-main"
+                        onclick="testcall(3, 'Docker Community Edition', 'local'), displayValues('local')">
+                        Docker Community Edition</a>
+                    <a href="#endcard-local" class="button-main"
+                        onclick="testcall(3, 'Docker Enterprise Edition', 'local'), displayValues('local')">
+                        Docker Enterprise Edition</a>
+                </div>
+            </div>
+
+            <div class="item" id="endcard-local">
+                <p>Hiermit ist der Durchlauf des Entscheidungshelfers abgeschlossen. Viel Erfolg bei der Umsetzung der
+                    Containerisierung des Systems.
+                    Für die Unterstützung der Implementierung wurden Cheatsheets zu Docker und Kubernetes erstellt.
+
+                </p>
+                <div id="display-local"></div>
+                <a class="button-main" onclick="createPdf()"> pdf erstellen</a>
+                <!-- <a href="" class="button-main" onclick=""> pdf erstellen</a> -->
+            </div>
+            <!-- </div> -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>

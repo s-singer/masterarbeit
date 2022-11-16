@@ -1,0 +1,55 @@
+.title{
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-bottom: 0;
+    word-break: break-all;
+}
+.titletext{
+    color: #1b1b1b;
+    margin-bottom: 50px;
+}
+.subtitle{
+    margin-top: 20px;
+    font-size: 30px;
+}
+.main-content{
+    margin-left: 100px;
+    margin-top:50px;
+}
+.mail{
+    color: #0073cc;
+    text-decoration: none;
+    display:flex;
+    align-self: center;
+}
+.mail:hover{
+    text-decoration: underline;
+}
+.mailcontact{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    margin-top: 150px;
+}
+.mail-logo{
+    width: 20px;
+    height: 20px;
+    padding-right: 20px;
+    display:flex;
+    align-self: center;
+}
+.docker-logo{
+    width: 50px;
+    height: 50px;
+}
+.button-home{
+    position: relative;
+    padding: 5px;
+}
+.button-icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+}

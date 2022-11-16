@@ -1,0 +1,5 @@
+button text center für entscheidungen
+button icons für home
+entscheidungsfenster vertikal zentrieren
+methode testcall umbenennen
+pdf stylen

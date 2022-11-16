@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/cheatsheet.css">
+</head>
+<body>
+    <section class="cheatsheet">
+        <a href="home.html"><h1>Home</h1></a>
+        <h1>K8s Cheatsheet</h1>
+        <ul>
+            <li>doctl kubernetes cluster list</li>
+            <li>doctl kubernetes cluster kubeconfig save name</li>
+            <li>kubectl apply -f: Anwenden von Konfigurationsdateien wie manifest.yaml oder deployment.yaml</li>
+            <li>kubectl get nodes: Auflistung der aktuellen Knoten</li>
+            <li>kubectl get pods: Auflistung der aktuellen Pods</li>
+            <li>kubectl get services: Auflistung der aktuellen Services</li>
+            <li>kubectl get namespaces: Auflistung der aktuellen Namespaces</li>
+            <li>kubectl delete : Löschen von pods, services, namespaces, secrets, etc.</li>
+            <li>kubectl autoscale: Stellt das Autoscaling für Deployments ein</li>
+            <li>kubectl create deployment name-image: Erstellt ein neues Deployment</li>
+            <li>kubectl scale --replicas=anzahl name: Ändert die Anzahl verschiedener Replicas diverser Komponenten. Mögliche zu ändernde Teile des Clusters sind Deployment, Replica Set, Replication Controller oder Stateful Set</li>
+            <li>kubectl autoscale name: Skaliert automatisch die Anzahl der Pods, um die Belastung des Systems ausgeglichen halten zu können</li>
+            <li>kubectl logs pod name: Zeigt die Logs eines bestimmten Pods an. Zusätzliche Konsolen-nachrichten wie „console.log()“ bei eingebundenen Javascriptdateien werden hier mit ausgegeben</li>
+            <li>kubectl describe service servicename: Zeigt die Metadaten des spezifizierten Services an</li>
+        </ul>
+        <h2>Download einfügen</h2>  
+    </section>
+</body>
+
