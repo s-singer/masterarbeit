@@ -1,6 +1,5 @@
 button text center für entscheidungen
-button icons für home
-entscheidungsfenster vertikal zentrieren
+button 2 zeilen stylen
 methode testcall umbenennen
 pdf stylen
-github pages url update
+favicon

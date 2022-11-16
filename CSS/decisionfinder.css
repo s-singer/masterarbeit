@@ -9,10 +9,15 @@
     max-height: 700px;
 	max-width: 1280px;
 	padding-right: 0;
-	margin: 0 auto;
-	border-radius: 10px;
+	margin: auto auto;
+	border-radius: 5px;
 	display: flex;
 	flex-direction: row;
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	
 
 }
 .sidebar{
@@ -63,24 +68,45 @@ h1 {
 	height: fit-content;
 	color: #6a6a6a;
 	border: 2px;
-	border: solid;
-    border-width: 2px;
+	margin-top: 0;
 	padding: 20px 20px;
+	text-align: center;
+	font-size: 18px;
+}
+.question{
+	height: fit-content;
+	color: #6a6a6a;
+	/* border: 2px;
+	border: solid;
+	border-radius:  5px;
+    border-width: 2px; */
+	padding: 20px 20px;
+	text-align: center;
+	font-size: 30px;
 }
 .choices{
-	margin-left: 20px;
+	margin-left: 35px;
+	
+	width: auto;
 	display: flex;
-	flex-direction: column;
 	align-self: center;
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
 	max-height: 500px;
+	flex-wrap: wrap;
+	justify-self: center;
+	justify-content: flex-start;
 }
 .choices-logging{
 	display: flex;
 	flex-direction: row;
-	max-width: 700px;
 	flex-wrap: wrap;
+	justify-self: center;
+	align-content: flex-start;
 	gap: 10px;
+}
+
+.button-decision{
+	padding: 25px 20px;
 }
