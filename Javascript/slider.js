@@ -103,7 +103,7 @@ function createPdf() {
 
     //grundlagen
     element.innerHTML = "<h1 skript=\"text-align: left\">Grundlagen des Hostings:</h1>";
-    element.innerHTML += '<table>' +
+    element.innerHTML += '<table id="resulttable">' +
         // '   <tr>' +
         // '     <th>Auswahlmöglichkeit</th>' +
         // '     <th>Auswahl</th>' +
@@ -132,7 +132,7 @@ function createPdf() {
 
     // Digitalocean
     if (digitalocean[0] != null) {
-        element.innerHTML += '<table>' +
+        element.innerHTML += '<table id="resulttable">' +
             '   <tr>' +
             '       <th>Auswahlmöglichkeit</th>' +
             '       <th>Auswahl</th>' +
@@ -174,7 +174,7 @@ function createPdf() {
 
     //Kubernetes 
     if (kubernetes[0] != 0) {
-        element.innerHTML += '<table>' +
+        element.innerHTML += '<table id="resulttable">' +
             '   <tr>' +
             '       <th>Auswahlmöglichkeit</th>' +
             '       <th>Auswahl</th>' +
@@ -228,7 +228,7 @@ function createPdf() {
 
 
     //dockerfile 
-    element.innerHTML += '<table>' +
+    element.innerHTML += '<table id="resulttable">' +
         '   <tr>' +
         '       <th>Auswahlmöglichkeit</th>' +
         '       <th>Auswahl</th>' +
@@ -260,7 +260,7 @@ function createPdf() {
         '</table>';
     // hardware
     if (hardware[0] != null) {
-        element.innerHTML += '<table>' +
+        element.innerHTML += '<table id="resulttable">' +
             '   <tr>' +
             '       <th>Auswahlmöglichkeit</th>' +
             '       <th>Auswahl</th>' +
@@ -282,7 +282,7 @@ function createPdf() {
     }
 
     //logging
-    element.innerHTML += '<table>' +
+    element.innerHTML += '<table id="resulttable">' +
         '   <tr>' +
         '       <th>Auswahlmöglichkeit</th>' +
         '       <th>Auswahl</th>' +
@@ -303,7 +303,7 @@ function createPdf() {
         '</table>';
 
     //lokal
-    element.innerHTML += '<table>' +
+    element.innerHTML += '<table id="resulttable">' +
         '   <tr>' +
         '     <th>Auswahlmöglichkeit</th>' +
         '     <th>Auswahl</th>' +
@@ -327,10 +327,27 @@ function createPdf() {
         ' </table>';
     element = removeUndefinedRows(element);
     //scans the document for undefined rows and deletes them
+    //code copied from w3schools: https://www.w3schools.com/howto/howto_js_filter_table.asp
     function removeUndefinedRows(element) {
-    
-        var tables = document.getElementsByClassName(element.getAttribute('undefined'));
-            element.getElementById("undefined").remove();
+            var input, filter, table, tr, td, i, txtValue;
+            input = 'undefined';
+            filter = input.toUpperCase();
+            // table = document.getElementById("resulttable");
+            table = element;
+
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "none";
+                } else {
+                  tr[i].style.display = "";
+                }
+              }       
+            }
+            return element;
     }
 
     html2pdf(element);

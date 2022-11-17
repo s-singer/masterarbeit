@@ -5,6 +5,5 @@ evtl die sidebar js überarbeiten
 
 
 pdf stylen -> 
-pdf filter undefined 
 schriftlinien
 list highlights alle funktionen durch
