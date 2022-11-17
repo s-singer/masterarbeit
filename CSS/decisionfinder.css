@@ -114,3 +114,17 @@ h1 {
 .highlighted{
 	color: #0073cc;
 }
+.cancel{
+	color: #1b1b1b;
+	display: flex;
+	align-items: center;
+}
+.cancel:hover{
+	color: #0073cc;
+}
+
+.return-icon{
+	height:15px;
+	width: 15px;
+	margin-right: 10px;
+}
