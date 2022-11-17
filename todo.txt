@@ -1,9 +1,10 @@
 button text center für entscheidungen
 button 2 zeilen stylen
-
+zwischeninfos
 evtl die sidebar js überarbeiten
 
 
-pdf stylen
-favicon
+pdf stylen -> 
+pdf filter undefined 
 schriftlinien
+list highlights alle funktionen durch

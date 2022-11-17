@@ -20,8 +20,8 @@
                 <li id="list-kubernetes"> Kubernetes</li>
                 <li id="list-dockerfile"> Dockerfile</li>
                 <li id="list-docker"> Docker</li>
-                <li id="list-logging"> Logging</li>
                 <li id="list-hardware"> Hardware</li>
+                <li id="list-logging"> Logging</li>
                 <li id="list-security"> Sicherheit</li>
                 <li id="list-storage"> Speicher</li>
                 <li id="list-local"> Lokale Entwicklung</li>
@@ -109,10 +109,10 @@
                 <div class="question">Wird DigitalOcean als Hostinganbieter genutzt?</div>
                 <div class="choices">
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="writeDecision(4, 'DigitalOcean wird als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(4, 'Ja', 'fundamentals'), displayValues('fundamentals')">
                         Ja</a>
-                    <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="writeDecision(4, 'DigitalOcean wird nicht als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
+                    <a href="#endcard-fundamentals-no-digitalocean" class="button-main button-decision"
+                        onclick="writeDecision(4, 'Nein', 'fundamentals'), displayValues('fundamentals')">
                         Nein</a>
                 </div>
             </div>
@@ -123,9 +123,13 @@
                     Kategorie</a>
             </div>
 
+            <div class="item" id="endcard-fundamentals-no-digitalocean">
+                <div class="question"></div>
+                <div id="display-fundamentals"></div>
+                <a href="#configmap" class="button-main button-decision" onclick="addListHighlight ('list-digitalocean','list-fundamentals')"> Weiter zur nächsten
+                    Kategorie</a>
+            </div>
 
-
-            <!-- </div> -->
             <!-- <div class="kubernetes-digitalocean"> -->
             <div class="item" id="serverstandort">
                 <div class="question">Welcher Serverstandort soll für die Anwendung genutzt werden?</div>
