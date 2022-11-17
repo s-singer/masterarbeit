@@ -11,18 +11,18 @@
     <!-- <h1>Entscheidungsfinder</h1> -->
     <div class="questionwindow">
         <div class="sidebar">
-            <div class="directory">
-                <div> Grundlagen</div>
-                <div> DigitalOcean</div>
-                <div> Kubernetes</div>
-                <div> Dockerfile</div>
-                <div> Docker</div>
-                <div> Logging</div>
-                <div> Hardware</div>
-                <div> Sicherheit</div>
-                <div> Speicher</div>
-                <div> Lokale Entwicklung</div>
-            </div>
+            <ol class="directory">
+                <li id="list-fundamentals" class="highlighted"> Grundlagen</li>
+                <li id="list-digitalocean"> DigitalOcean</li>
+                <li id="list-kubernetes"> Kubernetes</li>
+                <li id="list-dockerfile"> Dockerfile</li>
+                <li id="list-docker"> Docker</li>
+                <li id="list-logging"> Logging</li>
+                <li id="list-hardware"> Hardware</li>
+                <li id="list-security"> Sicherheit</li>
+                <li id="list-storage"> Speicher</li>
+                <li id="list-local"> Lokale Entwicklung</li>
+            </ol>
             <progress max="10" value="1"></progress>
         </div>
         <div class="wrapper">
@@ -31,10 +31,10 @@
                     werden?</div>
                 <div class="choices">
                     <a href="#hostinganbieter" class="button-main button-decision"
-                        onclick="testcall(0, 'Hostinganbieter', 'fundamentals')">
+                        onclick="writeDecision(0, 'Hostinganbieter', 'fundamentals')">
                         Hostinganbieter</a>
                     <a href="#hostingtechnologie" class="button-main button-decision"
-                        onclick="testcall(0, 'Eigener Server', 'fundamentals')">
+                        onclick="writeDecision(0, 'Eigener Server', 'fundamentals')">
                         Eigener
                         Server</a>
                 </div>
@@ -48,21 +48,21 @@
                 </p>
                 <div class="choices">
                     <a href="#hostingtechnologie" class="button-main button-decision"
-                        onclick="testcall(1, 'DigitalOcean', 'fundamentals')">
+                        onclick="writeDecision(1, 'DigitalOcean', 'fundamentals')">
                         DigitalOcean</a>
                     <a href="#hostingtechnologie" class="button-main button-decision"
-                        onclick="testcall(1, 'Amazon Web Services', 'fundamentals')"> Amazon
+                        onclick="writeDecision(1, 'Amazon Web Services', 'fundamentals')"> Amazon
                         Web
                         Services</a>
                     <a href="#hostingtechnologie" class="button-main button-decision"
-                        onclick="testcall(1, 'Google Cloud Platform', 'fundamentals')"> Google
+                        onclick="writeDecision(1, 'Google Cloud Platform', 'fundamentals')"> Google
                         Cloud Platform</a>
                     <a href="#hostingtechnologie" class="button-main button-decision"
-                        onclick="testcall(1, 'Microsoft Azure', 'fundamentals')">
+                        onclick="writeDecision(1, 'Microsoft Azure', 'fundamentals')">
                         Microsoft
                         Azure</a>
                     <a href="#hostingtechnologie" class="button-main button-decision"
-                        onclick="testcall(1, 'Andere Plattform', 'fundamentals')">
+                        onclick="writeDecision(1, 'Andere Plattform', 'fundamentals')">
                         Andere
                         Plattform</a>
                 </div>
@@ -71,11 +71,11 @@
                 <div class="question">Wie soll die Anwendung gehostet werden?</div>
                 <div class="choices">
                     <a href="#orchestration-platform" class="button-main button-decision"
-                        onclick="testcall(2, 'Hosting im Cluster', 'fundamentals')">
+                        onclick="writeDecision(2, 'Hosting im Cluster', 'fundamentals')">
                         Hosting
                         im Cluster</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="testcall(2, 'Hosting als Containeranwendung', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(2, 'Hosting als Containeranwendung', 'fundamentals'), displayValues('fundamentals')">
                         Hosting als
                         Containeranwendung</a>
                 </div>
@@ -90,13 +90,13 @@
                 </p>
                 <div class="choices">
                     <a href="#do-hosting" class="button-main button-decision"
-                        onclick="testcall(3, 'Kubernetes', 'fundamentals')">
+                        onclick="writeDecision(3, 'Kubernetes', 'fundamentals')">
                         Kubernetes</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="testcall(3, 'Docker Swarm', 'fundamentals'), displayValues('fundamentals')"> Docker
+                        onclick="writeDecision(3, 'Docker Swarm', 'fundamentals'), displayValues('fundamentals')"> Docker
                         Swarm</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="testcall(3, 'Andere Orchestration Plattform', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(3, 'Andere Orchestration Plattform', 'fundamentals'), displayValues('fundamentals')">
                         Andere Orchestration
                         Plattform</a>
                 </div>
@@ -106,17 +106,17 @@
                 <div class="question">Wird DigitalOcean als Hostinganbieter genutzt?</div>
                 <div class="choices">
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="testcall(4, 'DigitalOcean wird als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(4, 'DigitalOcean wird als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
                         Ja</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="testcall(4, 'DigitalOcean wird nicht als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(4, 'DigitalOcean wird nicht als Orchestration Plattform genutzt', 'fundamentals'), displayValues('fundamentals')">
                         Nein</a>
                 </div>
             </div>
             <div class="item" id="endcard-fundamentals">
                 <div class="question"></div>
                 <div id="display-fundamentals"></div>
-                <a href="#serverstandort" class="button-main button-decision" onclick=""> Weiter zur nächsten
+                <a href="#serverstandort" class="button-main button-decision" onclick="addListHighlight ('list-digitalocean','list-fundamentals')"> Weiter zur nächsten
                     Kategorie</a>
             </div>
 
@@ -133,16 +133,16 @@
                 </p>
                 <div class="choices">
                     <a href="#nodeart" class="button-main button-decision"
-                        onclick="testcall(0, 'Deutschland/Frankfurt', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(0, 'Deutschland/Frankfurt', 'kubernetes-digitalocean')">
                         Deutschland/Frankfurt</a>
                     <a href="#nodeart" class="button-main button-decision"
-                        onclick="testcall(0, 'Europa', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(0, 'Europa', 'kubernetes-digitalocean')">
                         Europa</a>
                     <a href="#nodeart" class="button-main button-decision"
-                        onclick="testcall(0, 'Nordamerika', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(0, 'Nordamerika', 'kubernetes-digitalocean')">
                         Nordamerika</a>
                     <a href="#nodeart" class="button-main button-decision"
-                        onclick="testcall(0, 'Asien', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(0, 'Asien', 'kubernetes-digitalocean')">
                         Asien</a>
                 </div>
             </div>
@@ -154,19 +154,19 @@
                 </p>
                 <div class="choices">
                     <a href="#leistung-nodes" class="button-main button-decision"
-                        onclick="testcall(1, 'Standardknoten', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(1, 'Standardknoten', 'kubernetes-digitalocean')">
                         Standardknoten</a>
                     <a href="#leistung-nodes" class="button-main button-decision"
-                        onclick="testcall(1, 'CPU-optimierte Knoten', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(1, 'CPU-optimierte Knoten', 'kubernetes-digitalocean')">
                         CPU-optimierte Knoten</a>
                     <a href="#leistung-nodes" class="button-main button-decision"
-                        onclick="testcall(1, 'RAM-optimierte Knoten', 'kubernetes-digitalocean')"> RAM-optimierte
+                        onclick="writeDecision(1, 'RAM-optimierte Knoten', 'kubernetes-digitalocean')"> RAM-optimierte
                         Knoten</a>
                     <a href="#leistung-nodes" class="button-main button-decision"
-                        onclick="testcall(1, 'Speicheroptimierte Knoten', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(1, 'Speicheroptimierte Knoten', 'kubernetes-digitalocean')">
                         Speicheroptimierte Knoten</a>
                     <a href="#leistung-nodes" class="button-main button-decision"
-                        onclick="testcall(1, 'Universaler Knoten', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(1, 'Universaler Knoten', 'kubernetes-digitalocean')">
                         Universaler Knoten</a>
                 </div>
             </div>
@@ -179,10 +179,10 @@
                 </p>
                 <div class="choices">
                     <a href="#autoscaling-digitalocean" class="button-main button-decision"
-                        onclick="testcall(2, 'Grundlegend', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(2, 'Grundlegend', 'kubernetes-digitalocean')">
                         Grundlegend</a>
                     <a href="#autoscaling-digitalocean" class="button-main button-decision"
-                        onclick="testcall(2, 'Premium', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(2, 'Premium', 'kubernetes-digitalocean')">
                         Premium</a>
                 </div>
             </div>
@@ -193,10 +193,10 @@
                 </p>
                 <div class="choices">
                     <a href="#high-avaliability-digitalocean" class="button-main button-decision"
-                        onclick="testcall(3, 'Ja', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(3, 'Ja', 'kubernetes-digitalocean')">
                         Ja</a>
                     <a href="#high-avaliability-digitalocean" class="button-main button-decision"
-                        onclick="testcall(3, 'Nein', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(3, 'Nein', 'kubernetes-digitalocean')">
                         Nein</a>
                 </div>
             </div>
@@ -210,10 +210,10 @@
                 </p>
                 <div class="choices">
                     <a href="#zertifikatmanagement" class="button-main button-decision"
-                        onclick="testcall(4, 'Ja', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(4, 'Ja', 'kubernetes-digitalocean')">
                         Ja</a>
                     <a href="#zertifikatmanagement" class="button-main button-decision"
-                        onclick="testcall(4, 'Nein', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(4, 'Nein', 'kubernetes-digitalocean')">
                         Nein</a>
                 </div>
             </div>
@@ -228,10 +228,10 @@
                 </p>
                 <div class="choices">
                     <a href="#updates" class="button-main button-decision"
-                        onclick="testcall(5, 'Automatische Erneuerung', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(5, 'Automatische Erneuerung', 'kubernetes-digitalocean')">
                         Automatische Erneuerung</a>
                     <a href="#updates" class="button-main button-decision"
-                        onclick="testcall(5, 'Manuelle Erneuerung', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(5, 'Manuelle Erneuerung', 'kubernetes-digitalocean')">
                         Manuelle Erneuerung</a>
                 </div>
             </div>
@@ -240,10 +240,10 @@
                 <div class="question">Sollen Minorversionen von Kubernetes automatisch geupdated werden?</div>
                 <div class="choices">
                     <a href="#kennzahlendetails" class="button-main button-decision"
-                        onclick="testcall(6, 'Ja', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(6, 'Ja', 'kubernetes-digitalocean')">
                         Ja</a>
                     <a href="#kennzahlendetails" class="button-main button-decision"
-                        onclick="testcall(6, 'Nein', 'kubernetes-digitalocean')">
+                        onclick="writeDecision(6, 'Nein', 'kubernetes-digitalocean')">
                         Nein</a>
                 </div>
             </div>
@@ -256,10 +256,10 @@
                 </p>
                 <div class="choices">
                     <a href="#endcard-digitalocean" class="button-main button-decision"
-                        onclick="testcall(7, 'Grundlegende Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
+                        onclick="writeDecision(7, 'Grundlegende Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
                         Grundlegende Kennzahlen</a>
                     <a href="#endcard-digitalocean" class="button-main button-decision"
-                        onclick="testcall(7, 'Erweiterte Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
+                        onclick="writeDecision(7, 'Erweiterte Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
                         Erweiterte Kennzahlen</a>
                 </div>
             </div>
@@ -286,10 +286,10 @@
                 </p>
                 <div class="choices">
                     <a href="#autoscaling-kubernetes" class="button-main button-decision"
-                        onclick="testcall(0, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(0, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#autoscaling-kubernetes" class="button-main button-decision"
-                        onclick="testcall(0, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(0, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -302,10 +302,10 @@
                 </p>
                 <div class="choices">
                     <a href="#health-checks-kubernetes" class="button-main button-decision"
-                        onclick="testcall(1, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(1, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#health-checks-kubernetes" class="button-main button-decision"
-                        onclick="testcall(1, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(1, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -321,10 +321,10 @@
                 </p>
                 <div class="choices">
                     <a href="#high-avaliability-kubernetes" class="button-main button-decision"
-                        onclick="testcall(2, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(2, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#high-avaliability-kubernetes" class="button-main button-decision"
-                        onclick="testcall(2, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(2, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -336,9 +336,9 @@
                     dennoch der Service fehlerfrei angeboten werden.
                 </p>
                 <div class="choices">
-                    <a href="#backup" class="button-main button-decision" onclick="testcall(3, 'Ja', 'kubernetes')">
+                    <a href="#backup" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'kubernetes')">
                         Ja</a>
-                    <a href="#backup" class="button-main button-decision" onclick="testcall(3, 'Nein', 'kubernetes')">
+                    <a href="#backup" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -354,10 +354,10 @@
                 </p>
                 <div class="choices">
                     <a href="#central-monitoring" class="button-main button-decision"
-                        onclick="testcall(4, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(4, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#central-monitoring" class="button-main button-decision"
-                        onclick="testcall(4, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(4, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -372,10 +372,10 @@
                 </p>
                 <div class="choices">
                     <a href="#central-logging" class="button-main button-decision"
-                        onclick="testcall(5, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(5, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#central-logging" class="button-main button-decision"
-                        onclick="testcall(5, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(5, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -392,10 +392,10 @@
                 </p>
                 <div class="choices">
                     <a href="#central-audit" class="button-main button-decision"
-                        onclick="testcall(6, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(6, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#central-audit" class="button-main button-decision"
-                        onclick="testcall(6, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(6, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -408,10 +408,10 @@
                 </p>
                 <div class="choices">
                     <a href="#automated-operations" class="button-main button-decision"
-                        onclick="testcall(7, 'Ja', 'kubernetes')">
+                        onclick="writeDecision(7, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#automated-operations" class="button-main button-decision"
-                        onclick="testcall(7, 'Nein', 'kubernetes')">
+                        onclick="writeDecision(7, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -425,9 +425,9 @@
 
                 </p>
                 <div class="choices">
-                    <a href="#cicd" class="button-main button-decision" onclick="testcall(8, 'Ja', 'kubernetes')">
+                    <a href="#cicd" class="button-main button-decision" onclick="writeDecision(8, 'Ja', 'kubernetes')">
                         Ja</a>
-                    <a href="#cicd" class="button-main button-decision" onclick="testcall(8, 'Nein', 'kubernetes')">
+                    <a href="#cicd" class="button-main button-decision" onclick="writeDecision(8, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -440,10 +440,10 @@
 
                 </p>
                 <div class="choices">
-                    <a href="#cicd-tools" class="button-main button-decision" onclick="testcall(9, 'Ja', 'kubernetes')">
+                    <a href="#cicd-tools" class="button-main button-decision" onclick="writeDecision(9, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="testcall(9, 'Nein', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(9, 'Nein', 'kubernetes'), displayValues('kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -453,13 +453,13 @@
 
                 <div class="choices">
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="testcall(10, 'Jenkins', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(10, 'Jenkins', 'kubernetes'), displayValues('kubernetes')">
                         Jenkins</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="testcall(10, 'GitLab', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(10, 'GitLab', 'kubernetes'), displayValues('kubernetes')">
                         GitLab</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="testcall(10, 'Anderes Tool', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(10, 'Anderes Tool', 'kubernetes'), displayValues('kubernetes')">
                         Anderes Tool</a>
                 </div>
             </div>
@@ -489,10 +489,10 @@
                 </p>
                 <div class="choices">
                     <a href="#health-checks-docker" class="button-main button-decision"
-                        onclick="testcall(0, 'Nutzung eines existierenden Base Images', 'dockerfile')">
+                        onclick="writeDecision(0, 'Nutzung eines existierenden Base Images', 'dockerfile')">
                         Nutzung eines existierenden Base Images</a>
                     <a href="#health-checks-docker" class="button-main button-decision"
-                        onclick="testcall(0, 'Neuerstellung eines Base Images', 'dockerfile')">
+                        onclick="writeDecision(0, 'Neuerstellung eines Base Images', 'dockerfile')">
                         Neuerstellung eines Base Images</a>
                 </div>
             </div>
@@ -504,10 +504,10 @@
                 </p>
                 <div class="choices">
                     <a href="#multi-stage-build" class="button-main button-decision"
-                        onclick="testcall(1, 'Ja', 'dockerfile')">
+                        onclick="writeDecision(1, 'Ja', 'dockerfile')">
                         Ja</a>
                     <a href="#multi-stage-build" class="button-main button-decision"
-                        onclick="testcall(1, 'Nein', 'dockerfile')">
+                        onclick="writeDecision(1, 'Nein', 'dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -522,9 +522,9 @@
                     für den weiteren Betrieb.
                 </p>
                 <div class="choices">
-                    <a href="#security" class="button-main button-decision" onclick="testcall(2, 'Ja', 'dockerfile')">
+                    <a href="#security" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'dockerfile')">
                         Ja</a>
-                    <a href="#security" class="button-main button-decision" onclick="testcall(2, 'Nein', 'dockerfile')">
+                    <a href="#security" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -534,9 +534,9 @@
                     Die Einstellungen werden noch eingefügt
                 </p>
                 <div class="choices">
-                    <a href="#hardware" class="button-main button-decision" onclick="testcall(3, 'Ja', 'dockerfile')">
+                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'dockerfile')">
                         Wird noch eingefügt</a>
-                    <a href="#hardware" class="button-main button-decision" onclick="testcall(3, 'Nein', 'dockerfile')">
+                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -544,9 +544,9 @@
                 <div class="question">Gibt es spezielle Hardwareanforderungen?</div>
                 <div class="choices">
                     <a href="#cpu-architecture" class="button-main button-decision"
-                        onclick="testcall(4, 'Ja', 'dockerfile')">
+                        onclick="writeDecision(4, 'Ja', 'dockerfile')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="testcall(4, 'Nein', 'dockerfile')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -561,10 +561,10 @@
                 </p>
                 <div class="choices">
                     <a href="#software-aging" class="button-main button-decision"
-                        onclick="testcall(0, 'Ja', 'hardware')">
+                        onclick="writeDecision(0, 'Ja', 'hardware')">
                         Ja</a>
                     <a href="#software-aging" class="button-main button-decision"
-                        onclick="testcall(0, 'Nein', 'hardware')">
+                        onclick="writeDecision(0, 'Nein', 'hardware')">
                         Nein</a>
                 </div>
             </div>
@@ -576,10 +576,10 @@
                 </p>
                 <div class="choices">
                     <a href="#remote-computing" class="button-main button-decision"
-                        onclick="testcall(1, 'Ja', 'hardware')">
+                        onclick="writeDecision(1, 'Ja', 'hardware')">
                         Ja</a>
                     <a href="#remote-computing" class="button-main button-decision"
-                        onclick="testcall(1, 'Nein', 'hardware')">
+                        onclick="writeDecision(1, 'Nein', 'hardware')">
                         Nein</a>
                 </div>
             </div>
@@ -590,9 +590,9 @@
                     vertrauenswürdigen fremden Geräten durch gesicherte Container ermöglichen.
                 </p>
                 <div class="choices">
-                    <a href="#speicher" class="button-main button-decision" onclick="testcall(2, 'Ja', 'hardware')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'hardware')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="testcall(2, 'Nein', 'hardware')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'hardware')">
                         Nein</a>
                 </div>
             </div>
@@ -604,10 +604,10 @@
                 </p>
                 <div class="choices">
                     <a href="#endcard-dockerfile" class="button-main button-decision"
-                        onclick="testcall(5, 'Ja', 'dockerfile'), displayValues('dockerfile')">
+                        onclick="writeDecision(5, 'Ja', 'dockerfile'), displayValues('dockerfile')">
                         Wird noch eingefügt</a>
                     <a href="#endcard-dockerfile" class="button-main button-decision"
-                        onclick="testcall(5, 'Nein', 'dockerfile'), displayValues('dockerfile')">
+                        onclick="writeDecision(5, 'Nein', 'dockerfile'), displayValues('dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -626,10 +626,10 @@
                 <div class="question">Wie soll das Logging für die Dockercontainer gestaltet sein?</div>
                 <div class="choices">
                     <a href="#loggingtreiber" class="button-main button-decision"
-                        onclick="testcall(0, 'Auswahl eines Loggingtreibers', 'logging')">
+                        onclick="writeDecision(0, 'Auswahl eines Loggingtreibers', 'logging')">
                         Auswahl eines Loggingtreibers</a>
                     <a href="#loggingtool" class="button-main button-decision"
-                        onclick="testcall(0, 'Nutzung eines Loggingtools', 'logging')">
+                        onclick="writeDecision(0, 'Nutzung eines Loggingtools', 'logging')">
                         Nutzung eines Loggingtools</a>
                 </div>
             </div>
@@ -646,37 +646,37 @@
                 </p>
                 <div class="choices choices-logging">
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'Kein Treiber', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'Kein Treiber', 'logging'), displayValues('logging')">
                         Kein Treiber</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'json-file', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'json-file', 'logging'), displayValues('logging')">
                         json-file</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'syslog', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'syslog', 'logging'), displayValues('logging')">
                         syslog</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'journald', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'journald', 'logging'), displayValues('logging')">
                         journald</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'gelf', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'gelf', 'logging'), displayValues('logging')">
                         gelf</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'fluentd', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'fluentd', 'logging'), displayValues('logging')">
                         fluentd</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'awslogs', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'awslogs', 'logging'), displayValues('logging')">
                         awslogs</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'splunk', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'splunk', 'logging'), displayValues('logging')">
                         splunk</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'etwlogs', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'etwlogs', 'logging'), displayValues('logging')">
                         etwlogs</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'gcplogs', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'gcplogs', 'logging'), displayValues('logging')">
                         gcplogs</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(1, 'logentries', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'logentries', 'logging'), displayValues('logging')">
                         logentries</a>
                 </div>
             </div>
@@ -684,19 +684,19 @@
                 <div class="question">Welches Loggingtool soll genutzt werden?</div>
                 <div class="choices">
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(2, 'ELK Stack', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'ELK Stack', 'logging'), displayValues('logging')">
                         ELK Stack</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(2, 'Sematext', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Sematext', 'logging'), displayValues('logging')">
                         Sematext</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(2, 'Logstash', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Logstash', 'logging'), displayValues('logging')">
                         Logstash</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(2, 'Filebeat', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Filebeat', 'logging'), displayValues('logging')">
                         Filebeat</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="testcall(2, 'Anderes Loggingtool', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Anderes Loggingtool', 'logging'), displayValues('logging')">
                         Anderes Loggingtool</a>
                 </div>
             </div>
@@ -715,9 +715,9 @@
                     Oberfläche bietet es eine bessere Übersicht als das Command Line Interface.
                 </p>
                 <div class="choices">
-                    <a href="#docker-toolbox" class="button-main button-decision" onclick="testcall(0, 'Ja', 'local')">
+                    <a href="#docker-toolbox" class="button-main button-decision" onclick="writeDecision(0, 'Ja', 'local')">
                         Ja</a>
-                    <a href="#minikube" class="button-main button-decision" onclick="testcall(0, 'Nein', 'local')">
+                    <a href="#minikube" class="button-main button-decision" onclick="writeDecision(0, 'Nein', 'local')">
                         Nein</a>
                 </div>
             </div>
@@ -731,10 +731,10 @@
                 </p>
                 <div class="choices">
                     <a href="#minikube" class="button-main button-decision"
-                        onclick="testcall(1, 'Docker Desktop', 'local')">
+                        onclick="writeDecision(1, 'Docker Desktop', 'local')">
                         Docker Desktop</a>
                     <a href="#minikube" class="button-main button-decision"
-                        onclick="testcall(1, 'Docker Toolbox', 'local')">
+                        onclick="writeDecision(1, 'Docker Toolbox', 'local')">
                         Docker Toolbox</a>
                 </div>
             </div>
@@ -748,10 +748,10 @@
                     Cluster zu betreiben.
                 </p>
                 <div class="choices">
-                    <a href="#docker-edition" class="button-main button-decision" onclick="testcall(2, 'Ja', 'local')">
+                    <a href="#docker-edition" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'local')">
                         Ja</a>
                     <a href="#docker-edition" class="button-main button-decision"
-                        onclick="testcall(2, 'Nein', 'local')">
+                        onclick="writeDecision(2, 'Nein', 'local')">
                         Nein</a>
                 </div>
             </div>
@@ -765,10 +765,10 @@
                 </p>
                 <div class="choices">
                     <a href="#endcard-local" class="button-main button-decision"
-                        onclick="testcall(3, 'Docker Community Edition', 'local'), displayValues('local')">
+                        onclick="writeDecision(3, 'Docker Community Edition', 'local'), displayValues('local')">
                         Docker Community Edition</a>
                     <a href="#endcard-local" class="button-main button-decision"
-                        onclick="testcall(3, 'Docker Enterprise Edition', 'local'), displayValues('local')">
+                        onclick="writeDecision(3, 'Docker Enterprise Edition', 'local'), displayValues('local')">
                         Docker Enterprise Edition</a>
                 </div>
             </div>

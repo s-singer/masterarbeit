@@ -110,3 +110,7 @@ h1 {
 .button-decision{
 	padding: 25px 20px;
 }
+/* styling for the sidebar list */
+.highlighted{
+	color: #0073cc;
+}

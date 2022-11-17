@@ -8,7 +8,7 @@ let hardware = [];
 let local = [];
 let security = [];
 let storage = [];
-function testcall(index, value, category) {
+function writeDecision(index, value, category) {
     if (category == 'fundamentals'){
         fundamentals[index] = value;
         console.log(fundamentals[index]);
@@ -97,4 +97,12 @@ function createPdf() {
     element.innerHTML += "<p>" + hardware + "</p>";
     element.innerHTML += "<p>" + local + "</p>";
     html2pdf(element);
+}
+
+function addListHighlight (listitem, removeitem){
+        // var v = document.getElementsByClassName(listitem);
+        var remove = document.getElementById(removeitem);
+        remove.className = remove.className.replace('highlighted', '');
+        var elem = document.getElementById(listitem);
+        elem.classList.add("highlighted");
 }
