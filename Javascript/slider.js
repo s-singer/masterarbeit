@@ -46,42 +46,43 @@ function writeDecision(index, value, category) {
     }
 }
 
+//function is used for testing and disabled for now
 function displayValues(category) {
-    if (category == 'fundamentals') {
-        console.log('displaying');
-        var target = document.getElementById("display-fundamentals");
-        target.innerHTML += "<p>" + fundamentals + "</p>";
-    }
-    if (category == 'digitalocean') {
-        console.log('displaying');
-        var target = document.getElementById("display-digitalocean");
-        target.innerHTML += "<p>" + digitalocean + "</p>";
-    }
-    if (category == 'kubernetes') {
-        console.log('displaying');
-        var target = document.getElementById("display-kubernetes");
-        target.innerHTML += "<p>" + kubernetes + "</p>";
-    }
-    if (category == 'dockerfile') {
-        console.log('displaying');
-        var target = document.getElementById("display-dockerfile");
-        target.innerHTML += "<p>" + dockerfile + "</p>";
-    }
-    if (category == 'logging') {
-        console.log('displaying');
-        var target = document.getElementById("display-logging");
-        target.innerHTML += "<p>" + logging + "</p>";
-    }
-    if (category == 'hardware') {
-        console.log('displaying');
-        var target = document.getElementById("display-hardware");
-        target.innerHTML += "<p>" + hardware + "</p>";
-    }
-    if (category == 'local') {
-        console.log('displaying');
-        var target = document.getElementById("display-local");
-        target.innerHTML += "<p>" + local + "</p>";
-    }
+    // if (category == 'fundamentals') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-fundamentals");
+    //     target.innerHTML += "<p>" + fundamentals + "</p>";
+    // }
+    // if (category == 'digitalocean') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-digitalocean");
+    //     target.innerHTML += "<p>" + digitalocean + "</p>";
+    // }
+    // if (category == 'kubernetes') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-kubernetes");
+    //     target.innerHTML += "<p>" + kubernetes + "</p>";
+    // }
+    // if (category == 'dockerfile') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-dockerfile");
+    //     target.innerHTML += "<p>" + dockerfile + "</p>";
+    // }
+    // if (category == 'logging') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-logging");
+    //     target.innerHTML += "<p>" + logging + "</p>";
+    // }
+    // if (category == 'hardware') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-hardware");
+    //     target.innerHTML += "<p>" + hardware + "</p>";
+    // }
+    // if (category == 'local') {
+    //     console.log('displaying');
+    //     var target = document.getElementById("display-local");
+    //     target.innerHTML += "<p>" + local + "</p>";
+    // }
 
 }
 

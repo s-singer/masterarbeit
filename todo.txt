@@ -2,6 +2,4 @@ button text center für entscheidungen
 button 2 zeilen stylen
 zwischeninfos
 evtl die sidebar js überarbeiten
-
-
 pdf stylen ->

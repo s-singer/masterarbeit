@@ -131,4 +131,7 @@ h1 {
 .button-decision{
 	padding: 25px 20px;
 }
-/* styling for the sidebar list */
+.existing-image{
+	/* font-size: 16px !important; */
+	width: 300px;
+}
