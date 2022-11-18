@@ -32,13 +32,36 @@
 	border-width: 2px;
 	border-color: #6a6a6a;
 }
+.directory {
+	text-align: start;
+	list-style-position: inside;
+	padding-left: 0;
+	margin-left: 20px;
+}
+.highlighted{
+	color: #0073cc;
+}
+.cancel{
+	color: #1b1b1b;
+	display: flex;
+	align-items: center;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.cancel:hover{
+	color: #0073cc;
+}
+
+.return-icon{
+	height:15px;
+	width: 15px;
+	margin-right: 10px;
+}
+
 progress{
 	color: #0073cc;
 	width: 75%;
-	/* background: #6a6a6a;
-	border-style: solid;
-	border: 1px; */
-
+	margin-left: 20px;
 }
 .wrapper {
 	height: 700px;
@@ -109,20 +132,3 @@ h1 {
 	padding: 25px 20px;
 }
 /* styling for the sidebar list */
-.highlighted{
-	color: #0073cc;
-}
-.cancel{
-	color: #1b1b1b;
-	display: flex;
-	align-items: center;
-}
-.cancel:hover{
-	color: #0073cc;
-}
-
-.return-icon{
-	height:15px;
-	width: 15px;
-	margin-right: 10px;
-}
