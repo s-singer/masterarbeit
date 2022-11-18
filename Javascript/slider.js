@@ -93,6 +93,11 @@ function addListHighlight(listitem, removeitem) {
     elem.classList.add("highlighted");
 }
 
+function updateProgressbar(value){
+    bar = document.getElementById('progressbar');
+    bar.setAttribute("value", value);
+}
+
 function createPdf() {
     // const element = document.querySelector('body');
     var element = document.createElement('div');

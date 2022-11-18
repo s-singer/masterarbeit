@@ -4,5 +4,4 @@ zwischeninfos
 evtl die sidebar js überarbeiten
 
 
-pdf stylen -> 
-schriftlinien
+pdf stylen ->
