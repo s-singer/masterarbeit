@@ -62,30 +62,28 @@ progress{
 }
 
 h1 {
-	text-align: center;
+	text-align: start;
 }
  .item >p {
 	height: fit-content;
 	color: #6a6a6a;
 	border: 2px;
 	margin-top: 0;
+	/* margin-left: 35px; */
 	padding: 20px 20px;
-	text-align: center;
+	text-align: start;
 	font-size: 18px;
+
 }
 .question{
 	height: fit-content;
 	color: #6a6a6a;
-	/* border: 2px;
-	border: solid;
-	border-radius:  5px;
-    border-width: 2px; */
 	padding: 20px 20px;
-	text-align: center;
+	text-align: left;
 	font-size: 30px;
 }
 .choices{
-	margin-left: 35px;
+	margin-left: 20px;
 	
 	width: auto;
 	display: flex;
