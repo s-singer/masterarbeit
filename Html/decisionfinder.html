@@ -537,23 +537,101 @@
             </div>
             <div class="item" id="security">
                 <div class="question">Sollen bestimmte Sicherheitseinstellungen vorgenommen werden?</div>
-                <p>
-                    Die Einstellungen werden noch eingefügt
-                </p>
                 <div class="choices">
-                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'dockerfile')">
-                        Wird noch eingefügt</a>
-                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'dockerfile')">
+                    <a href="#privileged" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'dockerfile'), updateProgressbar(6), addListHighlight ('list-security','list-dockerfile')">
+                        Ja</a>
+                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'dockerfile'), updateProgressbar(7), addListHighlight ('list-hardware','list-dockerfile')">
                         Nein</a>
                 </div>
             </div>
+
+            <!-- sicherheit -->
+            <div class="item" id="privileged">
+                <div class="question">Muss ein Container als privileged ausgeführt werden?</div>
+                <p>
+                    Container sollten nur in Ausnahmefällen als privileged konfiguriert werden. Denn einem als privileged eingestellten Container ist eine volle Zugriffserlaubnis auf alle Instanzen erteilt. So wird ein Zugriff auf alle Geräte im Hostsystem ermöglicht
+                </p>
+                <div class="choices">
+                    <a href="#access-control" class="button-main button-decision" onclick="writeDecision(0, 'Ja', 'security')">
+                        Ja</a>
+                    <a href="#access-control" class="button-main button-decision" onclick="writeDecision(0, 'Nein', 'security')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="access-control">
+                <div class="question">Soll Mandatory Access Control verwendet werden?</div>
+                <p>
+                    Es werden sicherheitsrelevante Beschränkungen an Containern durchgesetzt, wodurch diese effizienter voneinander abgegrenzt werden. HIerfür kann SELinux, Apparmor oder Seccomp genutzt werden.
+                </p>
+                <div class="choices">
+                    <a href="#filesystem" class="button-main button-decision" onclick="writeDecision(1, 'Ja', 'security')">
+                        Ja</a>
+                    <a href="#filesystem" class="button-main button-decision" onclick="writeDecision(1, 'Nein', 'security')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="filesystem">
+                <div class="question">Kann das Filesystem als read-only konfiguriert werden?</div>
+                <p>
+                    Durch das Definieren als Read Only wird es Außenstehenden erschwert, Änderungen an den Daten im System vorzunehmen.
+                </p>
+                <div class="choices">
+                    <a href="#guidelines" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'security')">
+                        Ja</a>
+                    <a href="#guidelines" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'security')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="guidelines">
+                <div class="question">Können Sicherheitsguidelines definiert werden?</div>
+                <p>
+                    Durch Sicherheitsguidelines kann der Erstellungsprozess von Containern sicherer gestaltet werden. Beispiele für mögliche Guidelines sind regelmäßiges Auditing oder das ausschließliche Benutzen von vertrauenswürdigen Registries.
+                </p>
+                <div class="choices">
+                    <a href="#registries" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'security')">
+                        Ja</a>
+                    <a href="#registries" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'security')">
+                        Nein</a>
+                </div>
+            </div>
+
+            <div class="item" id="registries">
+                <div class="question">Welche Registries sollen verwendet werden?</div>
+                <p>
+                    Bei Images mit sensitiven Nutzerdaten ist es empfehlenswert, anstatt eines öffentlichen Registrys ein privates zu verwenden, um Zugriffen auf die Daten vorzubeugen.
+                </p>
+                <div class="choices">
+                    <a href="#etables" class="button-main button-decision" onclick="writeDecision(4, 'Privat', 'security')">
+                        Privat</a>
+                    <a href="#etables" class="button-main button-decision" onclick="writeDecision(4, 'Öffentlich', 'security')">
+                        Öffentlich</a>
+                </div>
+            </div>
+
+            <div class="item" id="etables">
+                <div class="question">Können etables benutzt werden?</div>
+                <p>
+                    Durch den Einsatz von etables kann der Traffic genauer gefiltert werden, der durch die Ethernetbridge geleitet wird.
+                </p>
+                <div class="choices">
+                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(5, 'Ja', 'security')">
+                        Ja</a>
+                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(5, 'Nein', 'security')">
+                        Nein</a>
+                </div>
+            </div>
+
+
             <div class="item" id="hardware">
                 <div class="question">Gibt es spezielle Hardwareanforderungen?</div>
                 <div class="choices">
                     <a href="#cpu-architecture" class="button-main button-decision"
-                        onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(7)">
+                        onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(7), addListHighlight ('list-hardware','list-security')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(8)">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(8),  addListHighlight ('list-storage','list-security')">
                         Nein</a>
                 </div>
             </div>

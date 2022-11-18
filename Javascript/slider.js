@@ -29,6 +29,11 @@ function writeDecision(index, value, category) {
         console.log(dockerfile[index]);
         return;
     }
+    if (category == 'security') {
+        security[index] = value;
+        console.log(security[index]);
+        return;
+    }
     if (category == 'logging') {
         logging[index] = value;
         console.log(logging[index]);
@@ -264,6 +269,41 @@ function createPdf() {
         '       <td>' + dockerfile[5] + '</td>' +
         '   </tr>' +
         '</table>';
+
+    // security
+        // Digitalocean
+        if (security[0] != null) {
+            element.innerHTML += '<table id="resulttable">' +
+                '   <tr>' +
+                '       <th>Auswahlmöglichkeit</th>' +
+                '       <th>Auswahl</th>' +
+                '   </tr>' +
+                '   <tr>' +
+                '       <td>Ausführung als privileged:</td>' +
+                '       <td>' + security[0] + '</td>' +
+                '   </tr>' +
+                '   <tr>' +
+                '       <td>Nutzung der Mandatory Access Control:</td>' +
+                '       <td>' + security[1] + '</td>' +
+                '   </tr>' +
+                '   <tr>' +
+                '       <td>Filesystem als read-only:</td>' +
+                '       <td>' + security[2] + '</td>' +
+                '   </tr>' +
+                '   <tr>' +
+                '       <td>Einführen von Sicherheitsguidelines:</td>' +
+                '       <td>' + security[3] + '</td>' +
+                '   </tr>' +
+                '   <tr>' +
+                '       <td>Art des genutzten Registrys:</td>' +
+                '       <td>' + security[4] + '</td>' +
+                '   </tr>' +
+                '   <tr>' +
+                '       <td>Nutzung von etables:</td>' +
+                '       <td>' + security[5] + '</td>' +
+                '   </tr>' +
+                '</table>';
+        }
     // hardware
     if (hardware[0] != null) {
         element.innerHTML += '<table id="resulttable">' +
