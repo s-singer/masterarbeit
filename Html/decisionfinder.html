@@ -156,7 +156,7 @@
             <div class="item" id="nodeart">
                 <div class="question">Welche Art an Nodes soll eingesetzt werden?</div>
                 <p>
-                    Es existieren verschiedene Varianten der Nodes, welche für unterschiedliche Anforderungen von
+                    Es existieren verschiedene Varianten der Nodes, welche für unterschiedliche Arten von
                     Anwendungen optimiert wurden.
                 </p>
                 <div class="choices">
@@ -210,7 +210,7 @@
             <div class="item" id="high-avaliability-digitalocean">
                 <div class="question">Soll die Funktion der High Avaliability hinzugebucht werden?</div>
                 <p>
-                    Erhöhung der Zuverlässigkeit kritischer Workloads. Der Preis dafür beträgt 40$. Nach der Wahl
+                    High Avaliability beschreibt die Erhöhung der Zuverlässigkeit kritischer Workloads. Der Preis dafür beträgt 40$. Nach der Wahl
                     der
                     Option
                     ist diese nicht mehr kündbar.
@@ -259,7 +259,7 @@
                 <p>
                     Grundlegende Kennzahlen beinhalten die CPU Nutzung, den Belastungsdurchschnitt oder die
                     Bandweite.
-                    Erweiterte Metriken bieten Kennzahlen zum Status des Deployments.
+                    Erweiterte Metriken bieten zusätzlich Kennzahlen zum Status des Deployments.
                 </p>
                 <div class="choices">
                     <a href="#endcard-digitalocean" class="button-main button-decision"
@@ -304,7 +304,7 @@
             <div class="item" id="autoscaling-kubernetes">
                 <div class="question">Soll Autoscaling aktiviert werden?</div>
                 <p>
-                    Automatisches Hinzufügen und Entfernen von Knoten, wenn keine Pods mehr gescheduled werden
+                    Autoscaling beschreibt das automatische Hinzufügen und Entfernen von Knoten, wenn keine Pods mehr gescheduled werden
                     können.
                 </p>
                 <div class="choices">
@@ -354,7 +354,7 @@
                 <p>
                     Für einen möglichen Ausfall können Backupdaten erstellt werden. Anwendungsdaten lassen sich in
                     einer
-                    externenen über das Cluster werden in dem etcd Verzeichnis gespeichert. Außerdem können
+                    externenen  Datenbank festhalten. Informationen über das Cluster werden in dem etcd Verzeichnis gespeichert. Außerdem können
                     Backupools
                     wie
                     z. B. Velero genutzt werden.
@@ -371,9 +371,9 @@
             <div class="item" id="central-monitoring">
                 <div class="question">Soll zentrales Monitoring möglich sein?</div>
                 <p>
-                    Über das einzufügende Kubernetes Dashboard lassen sich wichtige Daten wie die CPU Nutzung in
+                    Über das Einfügen des Kubernetes Dashboard lassen sich wichtige Daten wie die CPU Nutzung in
                     einer
-                    grafischen Benutzeroberfläche auswerten. Außerdem können andere Tools wie Prometheus genutzt
+                    grafischen Benutzeroberfläche auswerten. Außerdem können andere Tools wie z.B. Prometheus genutzt
                     werden.
 
                 </p>
@@ -389,7 +389,7 @@
             <div class="item" id="central-logging">
                 <div class="question">Sollen Loggingdaten zentral gespeichert werden?</div>
                 <p>
-                    Um eine gute Übersicht über das Clusterhalten zu erlangen, sollten die Logs der Nodes und Pods
+                    Um eine gute Übersicht über das Clusterverhalten zu erlangen, sollten die Logs der Nodes und Pods
                     an
                     einem
                     zentralen Ort gespeichert werden, um deren Auswertung zu vereinfachen.
@@ -487,7 +487,7 @@
             <div class="item" id="base-image">
                 <div class="question">Wie soll das Base Image gestaltet sein?</div>
                 <p>
-                    Unterste Schicht der Containerarchitektur, auf die der Rest der Anwendung aufbaut. So lassen
+                    Ein Base Image ist die unterste Schicht der Containerarchitektur, auf die der Rest der Anwendung aufbaut. So lassen
                     sich
                     Grundlagen wie AlpineJs, Redis oder MongoDB einbinden.
                     <br> Die Plattform <a href="https://hub.docker.com"> Docker Hub</a> bietet viele verschiedene
@@ -549,7 +549,7 @@
             <div class="item" id="privileged">
                 <div class="question">Muss ein Container als privileged ausgeführt werden?</div>
                 <p>
-                    Container sollten nur in Ausnahmefällen als privileged konfiguriert werden. Denn einem als privileged eingestellten Container ist eine volle Zugriffserlaubnis auf alle Instanzen erteilt. So wird ein Zugriff auf alle Geräte im Hostsystem ermöglicht
+                    Container sollten nur in Ausnahmefällen als privileged konfiguriert werden. Denn einem als privileged eingestellten Container wird die volle Zugriffserlaubnis auf alle Instanzen erteilt. So wird der Zugriff auf alle Geräte im Hostsystem ermöglicht.
                 </p>
                 <div class="choices">
                     <a href="#access-control" class="button-main button-decision" onclick="writeDecision(0, 'Ja', 'security')">
@@ -562,7 +562,7 @@
             <div class="item" id="access-control">
                 <div class="question">Soll Mandatory Access Control verwendet werden?</div>
                 <p>
-                    Es werden sicherheitsrelevante Beschränkungen an Containern durchgesetzt, wodurch diese effizienter voneinander abgegrenzt werden. HIerfür kann SELinux, Apparmor oder Seccomp genutzt werden.
+                    Es werden sicherheitsrelevante Beschränkungen an Containern durchgesetzt, wodurch diese effizienter voneinander abgegrenzt werden. Hierfür kann SELinux, Apparmor oder Seccomp genutzt werden.
                 </p>
                 <div class="choices">
                     <a href="#filesystem" class="button-main button-decision" onclick="writeDecision(1, 'Ja', 'security')">
@@ -657,7 +657,7 @@
                 <div class="question">Treten Probleme mit Software Aging auf? </div>
                 <p>
                     Eine Anpassung der Reeboothäufigkeit der Anwendung führt zu einer Verringerung des Software
-                    Agings
+                    Agings.
                 </p>
                 <div class="choices">
                     <a href="#remote-computing" class="button-main button-decision"
@@ -672,7 +672,7 @@
                 <div class="question">Wird Remote Computing durchgeführt?</div>
                 <p>
                     Es lassen sich Software Guard Extensions aktivieren, welche Remote Computing auf nicht
-                    vertrauenswürdigen fremden Geräten durch gesicherte Container ermöglichen.
+                    vertrauenswürdigen, fremden Geräten durch gesicherte Container ermöglichen.
                 </p>
                 <div class="choices">
                     <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'hardware')">
@@ -796,7 +796,7 @@
             <div class="item" id="docker-desktop">
                 <div class="question">Soll Docker Desktop verwendet werden?</div>
                 <p>
-                    Docker Desktop ist ein Programm zum Management von Container-anwendungen. Durch seine grafische
+                    Docker Desktop ist ein Programm zum Management von Containeranwendungen. Durch seine grafische
                     Oberfläche bietet es eine bessere Übersicht als das Command Line Interface.
                 </p>
                 <div class="choices">
@@ -807,7 +807,7 @@
                 </div>
             </div>
             <div class="item" id="docker-toolbox">
-                <div class="question">Welcher Desktopversion soll verwendet werden?</div>
+                <div class="question">Welche Desktopversion soll verwendet werden?</div>
                 <p>
                     Bei älteren Betriebssystemen ist Docker Desktop nicht verfügbar. Stattdessen kann Docker Toolbox
                     eingesetzt werden. Bei macOS ist die Mindestanforderung Version 10.15. Bei Windows muss
