@@ -13,7 +13,8 @@
     <!-- <h1>Entscheidungsfinder</h1> -->
     <div class="questionwindow">
         <div class="sidebar">
-            <a href ="../index.html" class="cancel"><img src="../Assets/arrow-left-long-solid.svg" class="return-icon">Abbruch</a> 
+            <a href="../index.html" class="cancel"><img src="../Assets/arrow-left-long-solid.svg"
+                    class="return-icon">Abbruch</a>
             <ol class="directory">
                 <li id="list-fundamentals" class="highlighted"> Grundlagen</li>
                 <li id="list-digitalocean"> DigitalOcean</li>
@@ -44,7 +45,7 @@
             <div class="item" id="hostinganbieter">
                 <div class="question"> Welcher Hostinganbieter soll genutzt werden?</div>
                 <p>
-                    Hinweis: Da der praktische Teil der Arbeit über DigitalOcean durchgeführt wurde, sind hier die
+                    Hinweis: Da der praktische Teil der Arbeit über <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a> durchgeführt wurde, sind hier die
                     meisten
                     Entscheidungsmöglichkeiten zu finden.
                 </p>
@@ -85,7 +86,7 @@
             <div class="item" id="orchestration-platform">
                 <div class="question">Welche Container Orchestration Platform soll genutzt werden?</div>
                 <p>
-                    Kubernetes ist eine komplexere Containertechnologie als z.B. Docker Swarm, allerdings bietet sie
+                    <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>  ist eine komplexere Containertechnologie als z.B. Docker Swarm, allerdings bietet sie
                     mehr
                     Funktionen, hat Schlüsselfunktionen wie Self Healing und besitzt ein großes Ökosystem.
                     Daher eignet sich die Technologie für größere oder komplexere Cluster.
@@ -117,13 +118,17 @@
             <div class="item" id="endcard-fundamentals">
                 <div class="question"></div>
                 <div id="display-fundamentals" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#serverstandort" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(1)"> Weiter</a>
+                <a href="#serverstandort" class="button-main button-primary"
+                    onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(1)">
+                    Weiter</a>
             </div>
 
             <div class="item" id="endcard-fundamentals-no-digitalocean">
                 <div class="question"></div>
                 <div id="display-fundamentals" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(1)"> Weiter</a>
+                <a href="#configmap" class="button-main button-primary"
+                    onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(1)">
+                    Weiter</a>
             </div>
 
             <!-- <div class="kubernetes-digitalocean"> -->
@@ -206,7 +211,8 @@
             <div class="item" id="high-avaliability-digitalocean">
                 <div class="question">Soll die Funktion der High Avaliability hinzugebucht werden?</div>
                 <p>
-                    High Avaliability beschreibt die Erhöhung der Zuverlässigkeit kritischer Workloads. Der Preis dafür beträgt 40$. Nach der Wahl
+                    High Avaliability beschreibt die Erhöhung der Zuverlässigkeit kritischer Workloads. Der Preis dafür
+                    beträgt 40$. Nach der Wahl
                     der
                     Option
                     ist diese nicht mehr kündbar.
@@ -272,7 +278,8 @@
                 <p>
                 </p>
                 <div id="display-digitalocean" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-kubernetes','list-digitalocean') , updateProgressbar(2)"> Weiter 
+                <a href="#configmap" class="button-main button-primary"
+                    onclick="addListHighlight ('list-kubernetes','list-digitalocean') , updateProgressbar(2)"> Weiter
                 </a>
             </div>
             <!-- </div> -->
@@ -300,7 +307,8 @@
             <div class="item" id="autoscaling-kubernetes">
                 <div class="question">Soll Autoscaling aktiviert werden?</div>
                 <p>
-                    Autoscaling beschreibt das automatische Hinzufügen und Entfernen von Knoten, wenn keine Pods mehr gescheduled werden
+                    Autoscaling beschreibt das automatische Hinzufügen und Entfernen von Knoten, wenn keine Pods mehr
+                    gescheduled werden
                     können.
                 </p>
                 <div class="choices">
@@ -339,9 +347,11 @@
                     dennoch der Service fehlerfrei angeboten werden.
                 </p>
                 <div class="choices">
-                    <a href="#backup" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'kubernetes')">
+                    <a href="#backup" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Ja', 'kubernetes')">
                         Ja</a>
-                    <a href="#backup" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'kubernetes')">
+                    <a href="#backup" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -350,10 +360,11 @@
                 <p>
                     Für einen möglichen Ausfall können Backupdaten erstellt werden. Anwendungsdaten lassen sich in
                     einer
-                    externenen  Datenbank festhalten. Informationen über das Cluster werden in dem etcd Verzeichnis gespeichert. Außerdem können
+                    externenen Datenbank festhalten. Informationen über das Cluster werden in dem etcd Verzeichnis
+                    gespeichert. Außerdem können
                     Backupools
                     wie
-                    z. B. Velero genutzt werden.
+                    z. B. <a href="https://velero.io/" target="_blank">Velero</a> genutzt werden.
                 </p>
                 <div class="choices">
                     <a href="#central-monitoring" class="button-main button-decision"
@@ -369,7 +380,7 @@
                 <p>
                     Über das Einfügen des Kubernetes Dashboard lassen sich wichtige Daten wie die CPU Nutzung in
                     einer
-                    grafischen Benutzeroberfläche auswerten. Außerdem können andere Tools wie z.B. Prometheus genutzt
+                    grafischen Benutzeroberfläche auswerten. Außerdem können andere Tools wie z.B. <a href="https://prometheus.io/" target="_blank">Prometheus</a>  genutzt
                     werden.
 
                 </p>
@@ -389,7 +400,7 @@
                     an
                     einem
                     zentralen Ort gespeichert werden, um deren Auswertung zu vereinfachen.
-                    Beispiele für Loggingtools sind Graylog oder Fludentd.
+                    Beispiele für Loggingtools sind <a href="https://docs.graylog.org/" target="_blank">Graylog</a>  oder <a href="https://www.fluentd.org/" target="_blank">Fludentd</a>.
 
 
                 </p>
@@ -430,7 +441,8 @@
                 <div class="choices">
                     <a href="#cicd" class="button-main button-decision" onclick="writeDecision(8, 'Ja', 'kubernetes')">
                         Ja</a>
-                    <a href="#cicd" class="button-main button-decision" onclick="writeDecision(8, 'Nein', 'kubernetes')">
+                    <a href="#cicd" class="button-main button-decision"
+                        onclick="writeDecision(8, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -443,7 +455,8 @@
 
                 </p>
                 <div class="choices">
-                    <a href="#cicd-tools" class="button-main button-decision" onclick="writeDecision(9, 'Ja', 'kubernetes')">
+                    <a href="#cicd-tools" class="button-main button-decision"
+                        onclick="writeDecision(9, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
                         onclick="writeDecision(9, 'Nein', 'kubernetes')">
@@ -470,7 +483,8 @@
             <div class="item" id="endcard-kubernetes">
 
                 <div id="display-kubernetes" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#base-image" class="button-main button-primary" onclick="addListHighlight ('list-dockerfile','list-kubernetes'), updateProgressbar(3)">Weiter</a>
+                <a href="#base-image" class="button-main button-primary"
+                    onclick="addListHighlight ('list-dockerfile','list-kubernetes'), updateProgressbar(3)">Weiter</a>
             </div>
             <!-- </div> -->
 
@@ -479,10 +493,11 @@
             <div class="item" id="base-image">
                 <div class="question">Wie soll das Base Image gestaltet sein?</div>
                 <p>
-                    Ein Base Image ist die unterste Schicht der Containerarchitektur, auf die der Rest der Anwendung aufbaut. So lassen
+                    Ein Base Image ist die unterste Schicht der Containerarchitektur, auf die der Rest der Anwendung
+                    aufbaut. So lassen
                     sich
                     Grundlagen wie AlpineJs, Redis oder MongoDB einbinden.
-                    <br> Die Plattform <a href="https://hub.docker.com"> Docker Hub</a> bietet viele verschiedene
+                    <br> Die Plattform <a href="https://hub.docker.com" target="_blank"> Docker Hub</a> bietet viele verschiedene
                     Base
                     Images, die in das Dockerfile eingebunden werden können.
                 </p>
@@ -521,18 +536,22 @@
                     für den weiteren Betrieb.
                 </p>
                 <div class="choices">
-                    <a href="#security" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'dockerfile')">
+                    <a href="#security" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Ja', 'dockerfile')">
                         Ja</a>
-                    <a href="#security" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'dockerfile')">
+                    <a href="#security" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Nein', 'dockerfile')">
                         Nein</a>
                 </div>
             </div>
             <div class="item" id="security">
                 <div class="question">Sollen bestimmte Sicherheitseinstellungen vorgenommen werden?</div>
                 <div class="choices">
-                    <a href="#privileged" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'dockerfile'), updateProgressbar(4), addListHighlight ('list-security','list-dockerfile')">
+                    <a href="#privileged" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Ja', 'dockerfile'), updateProgressbar(4), addListHighlight ('list-security','list-dockerfile')">
                         Ja</a>
-                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'dockerfile'), updateProgressbar(5), addListHighlight ('list-hardware','list-dockerfile')">
+                    <a href="#hardware" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Nein', 'dockerfile'), updateProgressbar(5), addListHighlight ('list-hardware','list-dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -541,12 +560,16 @@
             <div class="item" id="privileged">
                 <div class="question">Muss ein Container als privileged ausgeführt werden?</div>
                 <p>
-                    Container sollten nur in Ausnahmefällen als privileged konfiguriert werden. Denn einem als privileged eingestellten Container wird die volle Zugriffserlaubnis auf alle Instanzen erteilt. So wird der Zugriff auf alle Geräte im Hostsystem ermöglicht.
+                    Container sollten nur in Ausnahmefällen als privileged konfiguriert werden. Denn einem als
+                    privileged eingestellten Container wird die volle Zugriffserlaubnis auf alle Instanzen erteilt. So
+                    wird der Zugriff auf alle Geräte im Hostsystem ermöglicht.
                 </p>
                 <div class="choices">
-                    <a href="#access-control" class="button-main button-decision" onclick="writeDecision(0, 'Ja', 'security')">
+                    <a href="#access-control" class="button-main button-decision"
+                        onclick="writeDecision(0, 'Ja', 'security')">
                         Ja</a>
-                    <a href="#access-control" class="button-main button-decision" onclick="writeDecision(0, 'Nein', 'security')">
+                    <a href="#access-control" class="button-main button-decision"
+                        onclick="writeDecision(0, 'Nein', 'security')">
                         Nein</a>
                 </div>
             </div>
@@ -554,12 +577,15 @@
             <div class="item" id="access-control">
                 <div class="question">Soll Mandatory Access Control verwendet werden?</div>
                 <p>
-                    Es werden sicherheitsrelevante Beschränkungen an Containern durchgesetzt, wodurch diese effizienter voneinander abgegrenzt werden. Hierfür kann SELinux, Apparmor oder Seccomp genutzt werden.
+                    Es werden sicherheitsrelevante Beschränkungen an Containern durchgesetzt, wodurch diese effizienter
+                    voneinander abgegrenzt werden. Hierfür kann SELinux, Apparmor oder Seccomp genutzt werden.
                 </p>
                 <div class="choices">
-                    <a href="#filesystem" class="button-main button-decision" onclick="writeDecision(1, 'Ja', 'security')">
+                    <a href="#filesystem" class="button-main button-decision"
+                        onclick="writeDecision(1, 'Ja', 'security')">
                         Ja</a>
-                    <a href="#filesystem" class="button-main button-decision" onclick="writeDecision(1, 'Nein', 'security')">
+                    <a href="#filesystem" class="button-main button-decision"
+                        onclick="writeDecision(1, 'Nein', 'security')">
                         Nein</a>
                 </div>
             </div>
@@ -567,12 +593,15 @@
             <div class="item" id="filesystem">
                 <div class="question">Kann das Filesystem als read-only konfiguriert werden?</div>
                 <p>
-                    Durch das Definieren als Read Only wird es Außenstehenden erschwert, Änderungen an den Daten im System vorzunehmen.
+                    Durch das Definieren als Read Only wird es Außenstehenden erschwert, Änderungen an den Daten im
+                    System vorzunehmen.
                 </p>
                 <div class="choices">
-                    <a href="#guidelines" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'security')">
+                    <a href="#guidelines" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Ja', 'security')">
                         Ja</a>
-                    <a href="#guidelines" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'security')">
+                    <a href="#guidelines" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Nein', 'security')">
                         Nein</a>
                 </div>
             </div>
@@ -580,12 +609,16 @@
             <div class="item" id="guidelines">
                 <div class="question">Können Sicherheitsguidelines definiert werden?</div>
                 <p>
-                    Durch Sicherheitsguidelines kann der Erstellungsprozess von Containern sicherer gestaltet werden. Beispiele für mögliche Guidelines sind regelmäßiges Auditing oder das ausschließliche Benutzen von vertrauenswürdigen Registries.
+                    Durch Sicherheitsguidelines kann der Erstellungsprozess von Containern sicherer gestaltet werden.
+                    Beispiele für mögliche Guidelines sind regelmäßiges Auditing oder das ausschließliche Benutzen von
+                    vertrauenswürdigen Registries.
                 </p>
                 <div class="choices">
-                    <a href="#registries" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'security')">
+                    <a href="#registries" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Ja', 'security')">
                         Ja</a>
-                    <a href="#registries" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'security')">
+                    <a href="#registries" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Nein', 'security')">
                         Nein</a>
                 </div>
             </div>
@@ -593,12 +626,15 @@
             <div class="item" id="registries">
                 <div class="question">Welche Registries sollen verwendet werden?</div>
                 <p>
-                    Bei Images mit sensitiven Nutzerdaten ist es empfehlenswert, anstatt eines öffentlichen Registrys ein privates zu verwenden, um unerlaubten Zugriff von Außen auf die Daten vorzubeugen.
+                    Bei Images mit sensitiven Nutzerdaten ist es empfehlenswert, anstatt eines öffentlichen Registrys
+                    ein privates zu verwenden, um unerlaubten Zugriff von Außen auf die Daten vorzubeugen.
                 </p>
                 <div class="choices">
-                    <a href="#etables" class="button-main button-decision" onclick="writeDecision(4, 'Privat', 'security')">
+                    <a href="#etables" class="button-main button-decision"
+                        onclick="writeDecision(4, 'Privat', 'security')">
                         Privat</a>
-                    <a href="#etables" class="button-main button-decision" onclick="writeDecision(4, 'Öffentlich', 'security')">
+                    <a href="#etables" class="button-main button-decision"
+                        onclick="writeDecision(4, 'Öffentlich', 'security')">
                         Öffentlich</a>
                 </div>
             </div>
@@ -606,12 +642,15 @@
             <div class="item" id="etables">
                 <div class="question">Können etables benutzt werden?</div>
                 <p>
-                    Durch den Einsatz von etables kann der Traffic genauer gefiltert werden, der durch die Ethernetbridge geleitet wird.
+                    Durch den Einsatz von etables kann der Traffic genauer gefiltert werden, der durch die
+                    Ethernetbridge geleitet wird.
                 </p>
                 <div class="choices">
-                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(5, 'Ja', 'security')">
+                    <a href="#hardware" class="button-main button-decision"
+                        onclick="writeDecision(5, 'Ja', 'security')">
                         Ja</a>
-                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(5, 'Nein', 'security')">
+                    <a href="#hardware" class="button-main button-decision"
+                        onclick="writeDecision(5, 'Nein', 'security')">
                         Nein</a>
                 </div>
             </div>
@@ -623,7 +662,8 @@
                     <a href="#cpu-architecture" class="button-main button-decision"
                         onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(5), addListHighlight ('list-hardware','list-security')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(6),  addListHighlight ('list-storage','list-security')">
+                    <a href="#speicher" class="button-main button-decision"
+                        onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(6),  addListHighlight ('list-storage','list-security')">
                         Nein</a>
                 </div>
             </div>
@@ -634,7 +674,7 @@
                 <p>
                     Es werden x86, x86-64, ARM, ARM64, PowerPC LE und IBMs POWER und Z Architekturen unterstützt.
                     Bei
-                    Docker Hub lassen sich Base Images nach deren Architektur filtern.
+                    <a href="https://hub.docker.com" target="_blank"> Docker Hub</a> lassen sich Base Images nach deren Architektur filtern.
                 </p>
                 <div class="choices">
                     <a href="#software-aging" class="button-main button-decision"
@@ -667,9 +707,11 @@
                     vertrauenswürdigen, fremden Geräten durch gesicherte Container ermöglichen.
                 </p>
                 <div class="choices">
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'hardware'), addListHighlight ('list-storage','list-hardware')">
+                    <a href="#speicher" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Ja', 'hardware'), addListHighlight ('list-storage','list-hardware')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'hardware'), addListHighlight ('list-storage','list-hardware')">
+                    <a href="#speicher" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Nein', 'hardware'), addListHighlight ('list-storage','list-hardware')">
                         Nein</a>
                 </div>
             </div>
@@ -690,80 +732,86 @@
             <div class="item" id="endcard-dockerfile">
                 <div class="question"></div>
                 <div id="display-dockerfile" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(7)"> Weiter</a>
+                <a href="#logging" class="button-main button-primary"
+                    onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(7)"> Weiter</a>
             </div>
 
-             <!-- speicher -->
-                <div class="item" id="volumes">
-                    <div class="question">Sollen Volumes eingesetzt werden?</div>
+            <!-- speicher -->
+            <div class="item" id="volumes">
+                <div class="question">Sollen Volumes eingesetzt werden?</div>
 
-                    <p>
-                        Docker speichert keine Daten über den Systemzustand. Durch das Benutzen von Volumes können Container ihre Daten darin ablegen.
-                    </p>
-                    <div class="choices">
-                        <a href="#volume-system" class="button-main button-decision"
-                            onclick="writeDecision(0, 'Ja', 'storage')">
-                            Ja</a>
-                        <a href="#storage-driver" class="button-main button-decision"
-                            onclick="writeDecision(0, 'Nein', 'storage')">
-                           Nein</a>
-                    </div>
+                <p>
+                    Docker speichert keine Daten über den Systemzustand. Durch das Benutzen von Volumes können Container
+                    ihre Daten darin ablegen.
+                </p>
+                <div class="choices">
+                    <a href="#volume-system" class="button-main button-decision"
+                        onclick="writeDecision(0, 'Ja', 'storage')">
+                        Ja</a>
+                    <a href="#storage-driver" class="button-main button-decision"
+                        onclick="writeDecision(0, 'Nein', 'storage')">
+                        Nein</a>
                 </div>
-                <div class="item" id="volume-system">
-                    <div class="question">Werden die Volumes auf dem selben System gespeichert?</div>
-                    <p>
-                        
-                    </p>
-                    <div class="choices">
-                        <a href="#shared-volumes" class="button-main button-decision"
-                            onclick="writeDecision(1, 'Ja', 'storage')">
-                            Ja</a>
-                        <a href="#storage-driver" class="button-main button-decision"
-                            onclick="writeDecision(1, 'Nein', 'storage')">
-                            Nein</a>
-                    </div>
-                </div>
+            </div>
+            <div class="item" id="volume-system">
+                <div class="question">Werden die Volumes auf dem selben System gespeichert?</div>
+                <p>
 
-                <div class="item" id="shared-volumes">
-                    <div class="question">Sollen Shared Volumes eingesetzt werden?</div>
-                    <p>
-                        Volumes können unter Containern geteilt werden. Dafür existieren drei verschiedene Vorgehensweisen: Blind Mount, Volumes und Tmpfs.
-                    </p>
-                    <div class="choices">
-                        <a href="#storage-driver" class="button-main button-decision"
-                            onclick="writeDecision(2, 'Ja', 'storage')">
-                            Ja</a>
-                        <a href="#storage-driver" class="button-main button-decision"
-                            onclick="writeDecision(2, 'Nein', 'storage')">
-                            Nein</a>
-                    </div>
+                </p>
+                <div class="choices">
+                    <a href="#shared-volumes" class="button-main button-decision"
+                        onclick="writeDecision(1, 'Ja', 'storage')">
+                        Ja</a>
+                    <a href="#storage-driver" class="button-main button-decision"
+                        onclick="writeDecision(1, 'Nein', 'storage')">
+                        Nein</a>
                 </div>
-                <div class="item" id="storage-driver">
-                    <div class="question">Welcher <a href="https://docs.docker.com/storage/storagedriver/select-storage-driver/">Storage Driver</a> soll genutzt werden?</div>
-                    <div class="choices">
-                        <a href="#endcard-storage" class="button-main button-decision"
-                            onclick="writeDecision(3, 'Vfs', 'storage')">
-                            Vfs</a>
-                        <a href="#endcard-storage" class="button-main button-decision"
-                            onclick="writeDecision(3, 'Aufs', 'storage')">
-                            Aufs</a>
-                        <a href="#endcard-storage" class="button-main button-decision"
-                            onclick="writeDecision(3, 'Overlay2', 'storage')">
-                            Overlay2</a>
-                        <a href="#endcard-storage" class="button-main button-decision"
-                            onclick="writeDecision(3, 'Device Mapper', 'storage')">
-                            Device Mapper</a>
-                        <a href="#endcard-storage" class="button-main button-decision"
-                            onclick="writeDecision(3, 'Btrfs', 'storage')">
-                           Btrfs</a>
-                    </div>
+            </div>
+
+            <div class="item" id="shared-volumes">
+                <div class="question">Sollen Shared Volumes eingesetzt werden?</div>
+                <p>
+                    Volumes können unter Containern geteilt werden. Dafür existieren drei verschiedene Vorgehensweisen:
+                    Blind Mount, Volumes und Tmpfs.
+                </p>
+                <div class="choices">
+                    <a href="#storage-driver" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Ja', 'storage')">
+                        Ja</a>
+                    <a href="#storage-driver" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Nein', 'storage')">
+                        Nein</a>
                 </div>
-    
-                <div class="item" id="endcard-storage">
-                    <div class="question"></div>
-                    <div id="display-storage" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                    <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(8)"> Weiter</a>
+            </div>
+            <div class="item" id="storage-driver">
+                <div class="question">Welcher <a
+                        href="https://docs.docker.com/storage/storagedriver/select-storage-driver/" target="_blank">Storage Driver</a>
+                    soll genutzt werden?</div>
+                <div class="choices">
+                    <a href="#endcard-storage" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Vfs', 'storage')">
+                        Vfs</a>
+                    <a href="#endcard-storage" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Aufs', 'storage')">
+                        Aufs</a>
+                    <a href="#endcard-storage" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Overlay2', 'storage')">
+                        Overlay2</a>
+                    <a href="#endcard-storage" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Device Mapper', 'storage')">
+                        Device Mapper</a>
+                    <a href="#endcard-storage" class="button-main button-decision"
+                        onclick="writeDecision(3, 'Btrfs', 'storage')">
+                        Btrfs</a>
                 </div>
+            </div>
+
+            <div class="item" id="endcard-storage">
+                <div class="question"></div>
+                <div id="display-storage" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#logging" class="button-main button-primary"
+                    onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(8)"> Weiter</a>
+            </div>
 
             <!-- <div class="logging"> -->
             <div class="item" id="logging">
@@ -779,14 +827,9 @@
             </div>
             <div class="item" id="loggingtreiber">
                 <div class="question">Welcher Loggingtreiber soll genutzt werden?</div>
-                <p>
-                    Diese Aufzählung und Beschreibung der Loggingtreiber wurde aus dem Kapitel “Selecting the
-                    logging
-                    driver
-                    for containers” aus Cochrane, K., Celladhurai, J., Khare, N.: Docker Cookbook – Second Edition.
-                    Packt
-                    Publishing, Birmingham, 2018 übernommen. <br>
-                    <!-- Die Beschreibungen werden noch hinzugefügt -->
+                <p> Durch die verschiedenen <a
+                        href="https://docs.docker.com/config/containers/logging/configure/#supported-logging-drivers" target="_blank">Loggingtreiber</a>
+                    kann das Logging auf individuelle Bedürfnisse angepasst werden.
                 </p>
                 <div class="choices choices-logging">
                     <a href="#endcard-logging" class="button-main button-decision"
@@ -848,7 +891,8 @@
             <div class="item" id="endcard-logging">
                 <div class="question"></div>
                 <div id="display-logging" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#docker-desktop" class="button-main button-primary" onclick="addListHighlight ('list-local','list-logging'), updateProgressbar(9)"> Weiter</a>
+                <a href="#docker-desktop" class="button-main button-primary"
+                    onclick="addListHighlight ('list-local','list-logging'), updateProgressbar(9)"> Weiter</a>
             </div>
 
             <div class="item" id="docker-desktop">
@@ -858,7 +902,8 @@
                     Oberfläche bietet es eine bessere Übersicht als das Command Line Interface.
                 </p>
                 <div class="choices">
-                    <a href="#docker-toolbox" class="button-main button-decision" onclick="writeDecision(0, 'Ja', 'local')">
+                    <a href="#docker-toolbox" class="button-main button-decision"
+                        onclick="writeDecision(0, 'Ja', 'local')">
                         Ja</a>
                     <a href="#minikube" class="button-main button-decision" onclick="writeDecision(0, 'Nein', 'local')">
                         Nein</a>
@@ -884,14 +929,15 @@
             <div class="item" id="minikube">
                 <div class="question">Soll beim Einsatz von Kubernetes minikube installiert werden?</div>
                 <p>
-                    Minikube ist eine Implementierung von Kubernetes, welche durch die Nutzung einer virtuellen
+                   <a href="https://minikube.sigs.k8s.io/docs/" target="_blank">Minikube</a> ist eine Implementierung von Kubernetes, welche durch die Nutzung einer virtuellen
                     Maschine
                     den lokalen Einsatz von Kubernetesclustern ermöglicht. Auch Docker Desktop hat die Funktion
                     inne,
                     Cluster zu betreiben.
                 </p>
                 <div class="choices">
-                    <a href="#docker-edition" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'local')">
+                    <a href="#docker-edition" class="button-main button-decision"
+                        onclick="writeDecision(2, 'Ja', 'local')">
                         Ja</a>
                     <a href="#docker-edition" class="button-main button-decision"
                         onclick="writeDecision(2, 'Nein', 'local')">
