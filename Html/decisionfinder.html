@@ -25,7 +25,7 @@
                 <li id="list-logging"> Logging</li>
                 <li id="list-local"> Lokale Entwicklung</li>
             </ol>
-            <progress max="9" value="1" id="progressbar"></progress>
+            <progress max="9" value="0" id="progressbar"></progress>
         </div>
         <div class="wrapper">
             <div class="item" id="hostingart">
@@ -621,9 +621,9 @@
                 <div class="question">Gibt es spezielle Hardwareanforderungen?</div>
                 <div class="choices">
                     <a href="#cpu-architecture" class="button-main button-decision"
-                        onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(6), addListHighlight ('list-hardware','list-security')">
+                        onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(5), addListHighlight ('list-hardware','list-security')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(7),  addListHighlight ('list-storage','list-security')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(6),  addListHighlight ('list-storage','list-security')">
                         Nein</a>
                 </div>
             </div>
