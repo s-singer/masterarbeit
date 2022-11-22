@@ -1,5 +1,6 @@
 cheatsheets
-speicher
 
 pdf stylen ->
 evtl pdf doppelte tabellenanzeige auch wenn kategorie übersprungen ist 
+
+vll mobil

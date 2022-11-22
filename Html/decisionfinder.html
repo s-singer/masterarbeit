@@ -19,7 +19,6 @@
                 <li id="list-digitalocean"> DigitalOcean</li>
                 <li id="list-kubernetes"> Kubernetes</li>
                 <li id="list-dockerfile"> Dockerfile</li>
-                <li id="list-docker"> Docker</li>
                 <li id="list-security"> Sicherheit</li>
                 <li id="list-hardware"> Hardware</li>
                 <li id="list-storage"> Speicher</li>
@@ -78,7 +77,7 @@
                         Hosting
                         im Cluster</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="writeDecision(2, 'Hosting als Containeranwendung', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(2, 'Hosting als Containeranwendung', 'fundamentals')">
                         Hosting als
                         Containeranwendung</a>
                 </div>
@@ -96,10 +95,10 @@
                         onclick="writeDecision(3, 'Kubernetes', 'fundamentals')">
                         Kubernetes</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="writeDecision(3, 'Docker Swarm', 'fundamentals'), displayValues('fundamentals')"> Docker
+                        onclick="writeDecision(3, 'Docker Swarm', 'fundamentals')"> Docker
                         Swarm</a>
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="writeDecision(3, 'Andere Orchestration Plattform', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(3, 'Andere Orchestration Plattform', 'fundamentals')">
                         Andere Orchestration
                         Plattform</a>
                 </div>
@@ -109,10 +108,10 @@
                 <div class="question">Wird DigitalOcean als Hostinganbieter genutzt?</div>
                 <div class="choices">
                     <a href="#endcard-fundamentals" class="button-main button-decision"
-                        onclick="writeDecision(4, 'Ja', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(4, 'Ja', 'fundamentals')">
                         Ja</a>
                     <a href="#endcard-fundamentals-no-digitalocean" class="button-main button-decision"
-                        onclick="writeDecision(4, 'Nein', 'fundamentals'), displayValues('fundamentals')">
+                        onclick="writeDecision(4, 'Nein', 'fundamentals')">
                         Nein</a>
                 </div>
             </div>
@@ -261,10 +260,10 @@
                 </p>
                 <div class="choices">
                     <a href="#endcard-digitalocean" class="button-main button-decision"
-                        onclick="writeDecision(7, 'Grundlegende Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
+                        onclick="writeDecision(7, 'Grundlegende Kennzahlen', 'kubernetes-digitalocean')">
                         Grundlegende Kennzahlen</a>
                     <a href="#endcard-digitalocean" class="button-main button-decision"
-                        onclick="writeDecision(7, 'Erweiterte Kennzahlen', 'kubernetes-digitalocean'), displayValues('digitalocean')">
+                        onclick="writeDecision(7, 'Erweiterte Kennzahlen', 'kubernetes-digitalocean')">
                         Erweiterte Kennzahlen</a>
                 </div>
             </div>
@@ -448,7 +447,7 @@
                     <a href="#cicd-tools" class="button-main button-decision" onclick="writeDecision(9, 'Ja', 'kubernetes')">
                         Ja</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="writeDecision(9, 'Nein', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(9, 'Nein', 'kubernetes')">
                         Nein</a>
                 </div>
             </div>
@@ -458,13 +457,13 @@
 
                 <div class="choices">
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="writeDecision(10, 'Jenkins', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(10, 'Jenkins', 'kubernetes')">
                         Jenkins</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="writeDecision(10, 'GitLab', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(10, 'GitLab', 'kubernetes')">
                         GitLab</a>
                     <a href="#endcard-kubernetes" class="button-main button-decision"
-                        onclick="writeDecision(10, 'Anderes Tool', 'kubernetes'), displayValues('kubernetes')">
+                        onclick="writeDecision(10, 'Anderes Tool', 'kubernetes')">
                         Anderes Tool</a>
                 </div>
             </div>
@@ -680,11 +679,11 @@
                 <div class="question">Soll der Speicher speziell konfiguriert werden?</div>
 
                 <div class="choices">
+                    <a href="#volumes" class="button-main button-decision"
+                        onclick="writeDecision(5, 'Ja', 'dockerfile'), addListHighlight ('list-storage','list-hardware')">
+                        Ja</a>
                     <a href="#endcard-dockerfile" class="button-main button-decision"
-                        onclick="writeDecision(5, 'Ja', 'dockerfile'), displayValues('dockerfile')">
-                        Wird noch eingefügt</a>
-                    <a href="#endcard-dockerfile" class="button-main button-decision"
-                        onclick="writeDecision(5, 'Nein', 'dockerfile'), displayValues('dockerfile')">
+                        onclick="writeDecision(5, 'Nein', 'dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -694,6 +693,78 @@
                 <div id="display-dockerfile" class="endcard-text">Weiter zur nächsten Kategorie</div>
                 <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(9)"> Weiter</a>
             </div>
+
+             <!-- speicher -->
+                <div class="item" id="volumes">
+                    <div class="question">Sollen Volumes eingesetzt werden?</div>
+
+                    <p>
+                        Docker speichert keine Daten über den Systemzustand. Durch das Benutzen von Volumes können Container ihre Daten darin ablegen.
+                    </p>
+                    <div class="choices">
+                        <a href="#volume-system" class="button-main button-decision"
+                            onclick="writeDecision(0, 'Ja', 'storage')">
+                            Ja</a>
+                        <a href="#storage-driver" class="button-main button-decision"
+                            onclick="writeDecision(0, 'Nein', 'storage')">
+                           Nein</a>
+                    </div>
+                </div>
+                <div class="item" id="volume-system">
+                    <div class="question">Werden die Volumes auf dem selben System gespeichert?</div>
+                    <p>
+                        
+                    </p>
+                    <div class="choices">
+                        <a href="#shared-volumes" class="button-main button-decision"
+                            onclick="writeDecision(1, 'Ja', 'storage')">
+                            Ja</a>
+                        <a href="#storage-driver" class="button-main button-decision"
+                            onclick="writeDecision(1, 'Nein', 'storage')">
+                            Nein</a>
+                    </div>
+                </div>
+
+                <div class="item" id="shared-volumes">
+                    <div class="question">Sollen Shared Volumes eingesetzt werden?</div>
+                    <p>
+                        Volumes können unter Containern geteilt werden. Dafür existieren drei verschiedene Vorgehensweisen: Blind Mount, Volumes und Tmpfs.
+                    </p>
+                    <div class="choices">
+                        <a href="#storage-driver" class="button-main button-decision"
+                            onclick="writeDecision(2, 'Ja', 'storage')">
+                            Ja</a>
+                        <a href="#storage-driver" class="button-main button-decision"
+                            onclick="writeDecision(2, 'Nein', 'storage')">
+                            Nein</a>
+                    </div>
+                </div>
+                <div class="item" id="storage-driver">
+                    <div class="question">Welcher <a href="https://docs.docker.com/storage/storagedriver/select-storage-driver/">Storage Driver</a> soll genutzt werden?</div>
+                    <div class="choices">
+                        <a href="#endcard-storage" class="button-main button-decision"
+                            onclick="writeDecision(3, 'Vfs', 'storage')">
+                            Vfs</a>
+                        <a href="#endcard-storage" class="button-main button-decision"
+                            onclick="writeDecision(3, 'Aufs', 'storage')">
+                            Aufs</a>
+                        <a href="#endcard-storage" class="button-main button-decision"
+                            onclick="writeDecision(3, 'Overlay2', 'storage')">
+                            Overlay2</a>
+                        <a href="#endcard-storage" class="button-main button-decision"
+                            onclick="writeDecision(3, 'Device Mapper', 'storage')">
+                            Device Mapper</a>
+                        <a href="#endcard-storage" class="button-main button-decision"
+                            onclick="writeDecision(3, 'Btrfs', 'storage')">
+                           Btrfs</a>
+                    </div>
+                </div>
+    
+                <div class="item" id="endcard-storage">
+                    <div class="question"></div>
+                    <div id="display-storage" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                    <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(9)"> Weiter</a>
+                </div>
 
             <!-- <div class="logging"> -->
             <div class="item" id="logging">
@@ -720,37 +791,37 @@
                 </p>
                 <div class="choices choices-logging">
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'Kein Treiber', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'Kein Treiber', 'logging')">
                         Kein Treiber</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'json-file', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'json-file', 'logging')">
                         json-file</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'syslog', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'syslog', 'logging')">
                         syslog</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'journald', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'journald', 'logging')">
                         journald</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'gelf', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'gelf', 'logging')">
                         gelf</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'fluentd', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'fluentd', 'logging')">
                         fluentd</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'awslogs', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'awslogs', 'logging')">
                         awslogs</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'splunk', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'splunk', 'logging')">
                         splunk</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'etwlogs', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'etwlogs', 'logging')">
                         etwlogs</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'gcplogs', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'gcplogs', 'logging')">
                         gcplogs</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(1, 'logentries', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(1, 'logentries', 'logging')">
                         logentries</a>
                 </div>
             </div>
@@ -758,19 +829,19 @@
                 <div class="question">Welches Loggingtool soll genutzt werden?</div>
                 <div class="choices">
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(2, 'ELK Stack', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'ELK Stack', 'logging')">
                         ELK Stack</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(2, 'Sematext', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Sematext', 'logging')">
                         Sematext</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(2, 'Logstash', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Logstash', 'logging')">
                         Logstash</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(2, 'Filebeat', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Filebeat', 'logging')">
                         Filebeat</a>
                     <a href="#endcard-logging" class="button-main button-decision"
-                        onclick="writeDecision(2, 'Anderes Loggingtool', 'logging'), displayValues('logging')">
+                        onclick="writeDecision(2, 'Anderes Loggingtool', 'logging')">
                         Anderes Loggingtool</a>
                 </div>
             </div>
@@ -838,10 +909,10 @@
                 </p>
                 <div class="choices">
                     <a href="#endcard-local" class="button-main button-decision"
-                        onclick="writeDecision(3, 'Docker Community Edition', 'local'), displayValues('local'), updateProgressbar(10)">
+                        onclick="writeDecision(3, 'Docker Community Edition', 'local'), updateProgressbar(10)">
                         Docker Community Edition</a>
                     <a href="#endcard-local" class="button-main button-decision"
-                        onclick="writeDecision(3, 'Docker Enterprise Edition', 'local'), displayValues('local'), updateProgressbar(10)">
+                        onclick="writeDecision(3, 'Docker Enterprise Edition', 'local'), updateProgressbar(10)">
                         Docker Enterprise Edition</a>
                 </div>
             </div>

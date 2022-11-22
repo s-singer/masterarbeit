@@ -39,6 +39,11 @@ function writeDecision(index, value, category) {
         console.log(logging[index]);
         return;
     }
+    if (category == 'storage') {
+        storage[index] = value;
+        console.log(storage[index]);
+        return;
+    }
     if (category == 'hardware') {
         hardware[index] = value;
         console.log(hardware[index]);
@@ -51,45 +56,6 @@ function writeDecision(index, value, category) {
     }
 }
 
-//function is used for testing and disabled for now
-function displayValues(category) {
-    // if (category == 'fundamentals') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-fundamentals");
-    //     target.innerHTML += "<p>" + fundamentals + "</p>";
-    // }
-    // if (category == 'digitalocean') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-digitalocean");
-    //     target.innerHTML += "<p>" + digitalocean + "</p>";
-    // }
-    // if (category == 'kubernetes') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-kubernetes");
-    //     target.innerHTML += "<p>" + kubernetes + "</p>";
-    // }
-    // if (category == 'dockerfile') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-dockerfile");
-    //     target.innerHTML += "<p>" + dockerfile + "</p>";
-    // }
-    // if (category == 'logging') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-logging");
-    //     target.innerHTML += "<p>" + logging + "</p>";
-    // }
-    // if (category == 'hardware') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-hardware");
-    //     target.innerHTML += "<p>" + hardware + "</p>";
-    // }
-    // if (category == 'local') {
-    //     console.log('displaying');
-    //     var target = document.getElementById("display-local");
-    //     target.innerHTML += "<p>" + local + "</p>";
-    // }
-
-}
 
 function addListHighlight(listitem, removeitem) {
     // var v = document.getElementsByClassName(listitem);
@@ -326,6 +292,31 @@ function createPdf() {
             '' +
             '</table>';
     }
+
+    //speicher
+    //dockerfile 
+    element.innerHTML += '<table id="resulttable">' +
+        '   <tr>' +
+        '       <th>Auswahlmöglichkeit</th>' +
+        '       <th>Auswahl</th>' +
+        '   </tr>' +
+        '   <tr>' +
+        '       <td>Nutzung von Volumes:</td>' +
+        '       <td>' + storage[0] + '</td>' +
+        '   </tr>' +
+        '   <tr>' +
+        '       <td>Volumes auf gleichem System:</td>' +
+        '       <td>' + storage[1] + '</td>' +
+        '   </tr>' +
+        '   <tr>' +
+        '       <td>Einsatz von Volume Sharing:</td>' +
+        '       <td>' + storage[2] + '</td>' +
+        '   </tr>' +
+        '   <tr>' +
+        '       <td>Auswahl eines Storage Drivers:</td>' +
+        '       <td>' + storage[3] + '</td>' +
+        '   </tr>' +
+        '</table>';
 
     //logging
     element.innerHTML += '<table id="resulttable">' +
