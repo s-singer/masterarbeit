@@ -25,7 +25,7 @@
                 <li id="list-logging"> Logging</li>
                 <li id="list-local"> Lokale Entwicklung</li>
             </ol>
-            <progress max="10" value="1" id="progressbar"></progress>
+            <progress max="9" value="1" id="progressbar"></progress>
         </div>
         <div class="wrapper">
             <div class="item" id="hostingart">
@@ -103,7 +103,6 @@
                         Plattform</a>
                 </div>
             </div>
-            <!-- todo das automatisch im array überprüfen -->
             <div class="item" id="do-hosting">
                 <div class="question">Wird DigitalOcean als Hostinganbieter genutzt?</div>
                 <div class="choices">
@@ -118,13 +117,13 @@
             <div class="item" id="endcard-fundamentals">
                 <div class="question"></div>
                 <div id="display-fundamentals" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#serverstandort" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(2)"> Weiter</a>
+                <a href="#serverstandort" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(1)"> Weiter</a>
             </div>
 
             <div class="item" id="endcard-fundamentals-no-digitalocean">
                 <div class="question"></div>
                 <div id="display-fundamentals" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(2)"> Weiter</a>
+                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(1)"> Weiter</a>
             </div>
 
             <!-- <div class="kubernetes-digitalocean"> -->
@@ -273,7 +272,7 @@
                 <p>
                 </p>
                 <div id="display-digitalocean" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-kubernetes','list-digitalocean') , updateProgressbar(3)"> Weiter 
+                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-kubernetes','list-digitalocean') , updateProgressbar(2)"> Weiter 
                 </a>
             </div>
             <!-- </div> -->
@@ -471,7 +470,7 @@
             <div class="item" id="endcard-kubernetes">
 
                 <div id="display-kubernetes" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#base-image" class="button-main button-primary" onclick="addListHighlight ('list-dockerfile','list-kubernetes'), updateProgressbar(4)">Weiter</a>
+                <a href="#base-image" class="button-main button-primary" onclick="addListHighlight ('list-dockerfile','list-kubernetes'), updateProgressbar(3)">Weiter</a>
             </div>
             <!-- </div> -->
 
@@ -531,9 +530,9 @@
             <div class="item" id="security">
                 <div class="question">Sollen bestimmte Sicherheitseinstellungen vorgenommen werden?</div>
                 <div class="choices">
-                    <a href="#privileged" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'dockerfile'), updateProgressbar(6), addListHighlight ('list-security','list-dockerfile')">
+                    <a href="#privileged" class="button-main button-decision" onclick="writeDecision(3, 'Ja', 'dockerfile'), updateProgressbar(4), addListHighlight ('list-security','list-dockerfile')">
                         Ja</a>
-                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'dockerfile'), updateProgressbar(7), addListHighlight ('list-hardware','list-dockerfile')">
+                    <a href="#hardware" class="button-main button-decision" onclick="writeDecision(3, 'Nein', 'dockerfile'), updateProgressbar(5), addListHighlight ('list-hardware','list-dockerfile')">
                         Nein</a>
                 </div>
             </div>
@@ -622,9 +621,9 @@
                 <div class="question">Gibt es spezielle Hardwareanforderungen?</div>
                 <div class="choices">
                     <a href="#cpu-architecture" class="button-main button-decision"
-                        onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(7), addListHighlight ('list-hardware','list-security')">
+                        onclick="writeDecision(4, 'Ja', 'dockerfile'), updateProgressbar(6), addListHighlight ('list-hardware','list-security')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(8),  addListHighlight ('list-storage','list-security')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(4, 'Nein', 'dockerfile'), updateProgressbar(7),  addListHighlight ('list-storage','list-security')">
                         Nein</a>
                 </div>
             </div>
@@ -680,10 +679,10 @@
 
                 <div class="choices">
                     <a href="#volumes" class="button-main button-decision"
-                        onclick="writeDecision(5, 'Ja', 'dockerfile'), addListHighlight ('list-storage','list-hardware')">
+                        onclick="writeDecision(5, 'Ja', 'dockerfile'), addListHighlight ('list-storage','list-hardware'), updateProgressbar(6)">
                         Ja</a>
                     <a href="#endcard-dockerfile" class="button-main button-decision"
-                        onclick="writeDecision(5, 'Nein', 'dockerfile')">
+                        onclick="writeDecision(5, 'Nein', 'dockerfile'), addListHighlight ('list-logging','list-storage')">
                         Nein</a>
                 </div>
             </div>
@@ -691,7 +690,7 @@
             <div class="item" id="endcard-dockerfile">
                 <div class="question"></div>
                 <div id="display-dockerfile" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(9)"> Weiter</a>
+                <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(7)"> Weiter</a>
             </div>
 
              <!-- speicher -->
@@ -763,7 +762,7 @@
                 <div class="item" id="endcard-storage">
                     <div class="question"></div>
                     <div id="display-storage" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                    <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(9)"> Weiter</a>
+                    <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(8)"> Weiter</a>
                 </div>
 
             <!-- <div class="logging"> -->
@@ -849,7 +848,7 @@
             <div class="item" id="endcard-logging">
                 <div class="question"></div>
                 <div id="display-logging" class="endcard-text">Weiter zur nächsten Kategorie</div>
-                <a href="#docker-desktop" class="button-main button-primary" onclick="addListHighlight ('list-local','list-logging'), updateProgressbar(10)"> Weiter</a>
+                <a href="#docker-desktop" class="button-main button-primary" onclick="addListHighlight ('list-local','list-logging'), updateProgressbar(9)"> Weiter</a>
             </div>
 
             <div class="item" id="docker-desktop">
@@ -909,10 +908,10 @@
                 </p>
                 <div class="choices">
                     <a href="#endcard-local" class="button-main button-decision"
-                        onclick="writeDecision(3, 'Docker Community Edition', 'local'), updateProgressbar(10)">
+                        onclick="writeDecision(3, 'Docker Community Edition', 'local'), updateProgressbar(9)">
                         Docker Community Edition</a>
                     <a href="#endcard-local" class="button-main button-decision"
-                        onclick="writeDecision(3, 'Docker Enterprise Edition', 'local'), updateProgressbar(10)">
+                        onclick="writeDecision(3, 'Docker Enterprise Edition', 'local'), updateProgressbar(9)">
                         Docker Enterprise Edition</a>
                 </div>
             </div>

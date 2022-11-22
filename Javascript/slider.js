@@ -65,7 +65,7 @@ function addListHighlight(listitem, removeitem) {
     elem.classList.add("highlighted");
 }
 
-function updateProgressbar(value){
+function updateProgressbar(value) {
     bar = document.getElementById('progressbar');
     bar.setAttribute("value", value);
 }
@@ -76,15 +76,26 @@ function createPdf() {
     element.style.width = '1240px'; //1240 × 1754
     element.style.height = '1754px';
     element.style.margin = '2cm';
-    element.innerHTML = "<p>blorg</p>";
 
+
+    element.innerHTML +=  '<style>'+
+'   #resulttable {'+
+'     font-family: \'Poppins\';'+
+'     border-collapse: collapse;'+
+'     margin-bottom: 20px;' +
+'     width: 50%;'+
+'   }'+
+'   '+
+'   #resulttable tr:nth-child(even){background-color: #f2f2f2;}'+
+'   #resulttable caption {'+
+'     text-align: left;'+
+'     background-color: #0073cc;'+
+'     color: white;'+
+'   }'+
+'   </style>';
     //grundlagen
-    element.innerHTML = "<h1 skript=\"text-align: left\">Grundlagen des Hostings:</h1>";
     element.innerHTML += '<table id="resulttable">' +
-        // '   <tr>' +
-        // '     <th>Auswahlmöglichkeit</th>' +
-        // '     <th>Auswahl</th>' +
-        // '   </tr>' +
+        '<caption>Grundlagen:</caption>' +
         '   <tr>' +
         '     <td>Auswahl der Hostingart:</td>' +
         '     <td>' + fundamentals[0] + '</td>' +
@@ -110,10 +121,7 @@ function createPdf() {
     // Digitalocean
     if (digitalocean[0] != null) {
         element.innerHTML += '<table id="resulttable">' +
-            '   <tr>' +
-            '       <th>Auswahlmöglichkeit</th>' +
-            '       <th>Auswahl</th>' +
-            '   </tr>' +
+            '<caption>Kubernetes bei Digitalocean:</caption>' +
             '   <tr>' +
             '       <td>Serverstandort:</td>' +
             '       <td>' + digitalocean[0] + '</td>' +
@@ -152,10 +160,7 @@ function createPdf() {
     //Kubernetes 
     if (kubernetes[0] != 0) {
         element.innerHTML += '<table id="resulttable">' +
-            '   <tr>' +
-            '       <th>Auswahlmöglichkeit</th>' +
-            '       <th>Auswahl</th>' +
-            '   </tr>' +
+            '<caption>Kubernetes: </caption>' +
             '   <tr>' +
             '       <td>ConfigMap mit zusätzlicher Secret Datei:</td>' +
             '       <td>' + kubernetes[0] + '</td>' +
@@ -206,10 +211,7 @@ function createPdf() {
 
     //dockerfile 
     element.innerHTML += '<table id="resulttable">' +
-        '   <tr>' +
-        '       <th>Auswahlmöglichkeit</th>' +
-        '       <th>Auswahl</th>' +
-        '   </tr>' +
+        '<caption>Gestaltung des Dockerfiles: </caption>' +
         '   <tr>' +
         '       <td>Gestaltung des Base Images:</td>' +
         '       <td>' + dockerfile[0] + '</td>' +
@@ -237,46 +239,40 @@ function createPdf() {
         '</table>';
 
     // security
-        // Digitalocean
-        if (security[0] != null) {
-            element.innerHTML += '<table id="resulttable">' +
-                '   <tr>' +
-                '       <th>Auswahlmöglichkeit</th>' +
-                '       <th>Auswahl</th>' +
-                '   </tr>' +
-                '   <tr>' +
-                '       <td>Ausführung als privileged:</td>' +
-                '       <td>' + security[0] + '</td>' +
-                '   </tr>' +
-                '   <tr>' +
-                '       <td>Nutzung der Mandatory Access Control:</td>' +
-                '       <td>' + security[1] + '</td>' +
-                '   </tr>' +
-                '   <tr>' +
-                '       <td>Filesystem als read-only:</td>' +
-                '       <td>' + security[2] + '</td>' +
-                '   </tr>' +
-                '   <tr>' +
-                '       <td>Einführen von Sicherheitsguidelines:</td>' +
-                '       <td>' + security[3] + '</td>' +
-                '   </tr>' +
-                '   <tr>' +
-                '       <td>Art des genutzten Registrys:</td>' +
-                '       <td>' + security[4] + '</td>' +
-                '   </tr>' +
-                '   <tr>' +
-                '       <td>Nutzung von etables:</td>' +
-                '       <td>' + security[5] + '</td>' +
-                '   </tr>' +
-                '</table>';
-        }
+
+    if (security[0] != null) {
+        element.innerHTML += '<table id="resulttable">' +
+            '<caption>Sicherheitseinstellungen: </caption>' +
+            '   <tr>' +
+            '       <td>Ausführung als privileged:</td>' +
+            '       <td>' + security[0] + '</td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td>Nutzung der Mandatory Access Control:</td>' +
+            '       <td>' + security[1] + '</td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td>Filesystem als read-only:</td>' +
+            '       <td>' + security[2] + '</td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td>Einführen von Sicherheitsguidelines:</td>' +
+            '       <td>' + security[3] + '</td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td>Art des genutzten Registrys:</td>' +
+            '       <td>' + security[4] + '</td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td>Nutzung von etables:</td>' +
+            '       <td>' + security[5] + '</td>' +
+            '   </tr>' +
+            '</table>';
+    }
     // hardware
     if (hardware[0] != null) {
         element.innerHTML += '<table id="resulttable">' +
-            '   <tr>' +
-            '       <th>Auswahlmöglichkeit</th>' +
-            '       <th>Auswahl</th>' +
-            '   </tr>' +
+            '<caption>Hardwareeinstellungen: </caption>' +
             '   <tr>' +
             '       <td>Nutzung einer bestimmten CPU-Architektur:</td>' +
             '       <td>' + hardware[0] + '</td>' +
@@ -293,13 +289,9 @@ function createPdf() {
             '</table>';
     }
 
-    //speicher
-    //dockerfile 
+    //speicher 
     element.innerHTML += '<table id="resulttable">' +
-        '   <tr>' +
-        '       <th>Auswahlmöglichkeit</th>' +
-        '       <th>Auswahl</th>' +
-        '   </tr>' +
+        '<caption>Speichereinstellungen: </caption>' +
         '   <tr>' +
         '       <td>Nutzung von Volumes:</td>' +
         '       <td>' + storage[0] + '</td>' +
@@ -320,10 +312,7 @@ function createPdf() {
 
     //logging
     element.innerHTML += '<table id="resulttable">' +
-        '   <tr>' +
-        '       <th>Auswahlmöglichkeit</th>' +
-        '       <th>Auswahl</th>' +
-        '   </tr>' +
+        '<caption>Logging: </caption>' +
         '   <tr>' +
         '       <td>Art des Loggings:</td>' +
         '       <td>' + logging[0] + '</td>' +
@@ -341,10 +330,7 @@ function createPdf() {
 
     //lokal
     element.innerHTML += '<table id="resulttable">' +
-        '   <tr>' +
-        '     <th>Auswahlmöglichkeit</th>' +
-        '     <th>Auswahl</th>' +
-        '   </tr>' +
+        '<caption>Lokale Entwicklung: </caption>' +
         '   <tr>' +
         '     <td>Verwendung von Docker Desktop:</td>' +
         '     <td>' + local[0] + '</td>' +
@@ -366,25 +352,25 @@ function createPdf() {
     //scans the document for undefined rows and deletes them
     //code copied from w3schools: https://www.w3schools.com/howto/howto_js_filter_table.asp
     function removeUndefinedRows(element) {
-            var input, filter, table, tr, td, i, txtValue;
-            input = 'undefined';
-            filter = input.toUpperCase();
-            // table = document.getElementById("resulttable");
-            table = element;
+        var input, filter, table, tr, td, i, txtValue;
+        input = 'undefined';
+        filter = input.toUpperCase();
+        // table = document.getElementById("resulttable");
+        table = element;
 
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
-              if (td) {
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "none";
+                    tr[i].style.display = "none";
                 } else {
-                  tr[i].style.display = "";
+                    tr[i].style.display = "";
                 }
-              }       
             }
-            return element;
+        }
+        return element;
     }
 
     html2pdf(element);
