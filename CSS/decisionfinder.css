@@ -173,3 +173,15 @@ h1 {
 #loggingtreiber{
 	overflow-y: scroll;
 }
+
+@media all and (max-width:700px){
+	.questionwindow{
+		width: 100%;
+	}
+}
+
+@media all and (max-width:550px){
+	.sidebar{
+		display: none;
+	}
+}
