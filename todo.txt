@@ -1,5 +1,5 @@
-button text center für entscheidungen
-button 2 zeilen stylen
-zwischeninfos
-evtl die sidebar js überarbeiten
+cheatsheets
+speicher
+
 pdf stylen ->
+evtl pdf doppelte tabellenanzeige auch wenn kategorie übersprungen ist 

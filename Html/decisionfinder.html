@@ -118,16 +118,14 @@
             </div>
             <div class="item" id="endcard-fundamentals">
                 <div class="question"></div>
-                <div id="display-fundamentals"></div>
-                <a href="#serverstandort" class="button-main button-decision" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(2)"> Weiter zur nächsten
-                    Kategorie</a>
+                <div id="display-fundamentals" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#serverstandort" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(2)"> Weiter</a>
             </div>
 
             <div class="item" id="endcard-fundamentals-no-digitalocean">
                 <div class="question"></div>
-                <div id="display-fundamentals"></div>
-                <a href="#configmap" class="button-main button-decision" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(2)"> Weiter zur nächsten
-                    Kategorie</a>
+                <div id="display-fundamentals" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-digitalocean','list-fundamentals'), updateProgressbar(2)"> Weiter</a>
             </div>
 
             <!-- <div class="kubernetes-digitalocean"> -->
@@ -275,8 +273,8 @@
                 <div class="question"></div>
                 <p>
                 </p>
-                <div id="display-digitalocean"></div>
-                <a href="#configmap" class="button-main button-decision" onclick="addListHighlight ('list-kubernetes','list-digitalocean') , updateProgressbar(3)"> Weiter zur nächsten Kategorie
+                <div id="display-digitalocean" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#configmap" class="button-main button-primary" onclick="addListHighlight ('list-kubernetes','list-digitalocean') , updateProgressbar(3)"> Weiter 
                 </a>
             </div>
             <!-- </div> -->
@@ -472,13 +470,9 @@
             </div>
 
             <div class="item" id="endcard-kubernetes">
-                <div class="question"></div>
-                <p>
-                </p>
-                <div id="display-kubernetes"></div>
-                <!-- pdf styling machen -->
-                <a href="#base-image" class="button-main button-decision" onclick="addListHighlight ('list-dockerfile','list-kubernetes'), updateProgressbar(4)">Weiter zur nächsten
-                    Kategorie</a>
+
+                <div id="display-kubernetes" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#base-image" class="button-main button-primary" onclick="addListHighlight ('list-dockerfile','list-kubernetes'), updateProgressbar(4)">Weiter</a>
             </div>
             <!-- </div> -->
 
@@ -523,7 +517,7 @@
                 <p>
                     Während des Buildprozesses werden mehrere Images erstellt, nur das letzte wird übernommen. Dies
                     ist
-                    nützlich, wenn es Z.B. Inhalte im Projekt gibt, die für das Generieren des Images nötig sind,
+                    nützlich, wenn es z.B. Inhalte im Projekt gibt, die für das Generieren des Images nötig sind,
                     aber
                     nicht
                     für den weiteren Betrieb.
@@ -601,7 +595,7 @@
             <div class="item" id="registries">
                 <div class="question">Welche Registries sollen verwendet werden?</div>
                 <p>
-                    Bei Images mit sensitiven Nutzerdaten ist es empfehlenswert, anstatt eines öffentlichen Registrys ein privates zu verwenden, um Zugriffen auf die Daten vorzubeugen.
+                    Bei Images mit sensitiven Nutzerdaten ist es empfehlenswert, anstatt eines öffentlichen Registrys ein privates zu verwenden, um unerlaubten Zugriff von Außen auf die Daten vorzubeugen.
                 </p>
                 <div class="choices">
                     <a href="#etables" class="button-main button-decision" onclick="writeDecision(4, 'Privat', 'security')">
@@ -675,18 +669,16 @@
                     vertrauenswürdigen, fremden Geräten durch gesicherte Container ermöglichen.
                 </p>
                 <div class="choices">
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'hardware')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Ja', 'hardware'), addListHighlight ('list-storage','list-hardware')">
                         Ja</a>
-                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'hardware')">
+                    <a href="#speicher" class="button-main button-decision" onclick="writeDecision(2, 'Nein', 'hardware'), addListHighlight ('list-storage','list-hardware')">
                         Nein</a>
                 </div>
             </div>
 
             <div class="item" id="speicher">
-                <div class="question">Wie soll der Speicher konfiguriert werden?</div>
-                <p>
-                    Fragen zum Speicher werden noch eingefügt.
-                </p>
+                <div class="question">Soll der Speicher speziell konfiguriert werden?</div>
+
                 <div class="choices">
                     <a href="#endcard-dockerfile" class="button-main button-decision"
                         onclick="writeDecision(5, 'Ja', 'dockerfile'), displayValues('dockerfile')">
@@ -699,12 +691,9 @@
 
             <div class="item" id="endcard-dockerfile">
                 <div class="question"></div>
-                <div id="display-dockerfile"></div>
-                <!-- pdf styling machen -->
-                <!-- <a href="#endcard" class="button-main button-decision" onclick="createPdf()" > pdf erstellen</a> -->
-                <a href="#logging" class="button-main button-decision" onclick="addListHighlight ('list-logging','list-dockerfile'), updateProgressbar(9)"> Weiter zur nächsten Kategorie</a>
+                <div id="display-dockerfile" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#logging" class="button-main button-primary" onclick="addListHighlight ('list-logging','list-storage'), updateProgressbar(9)"> Weiter</a>
             </div>
-            <!-- </div> -->
 
             <!-- <div class="logging"> -->
             <div class="item" id="logging">
@@ -788,9 +777,8 @@
 
             <div class="item" id="endcard-logging">
                 <div class="question"></div>
-                <div id="display-logging"></div>
-                <a href="#docker-desktop" class="button-main button-decision" onclick="addListHighlight ('list-local','list-logging'), updateProgressbar(10)"> Weiter zur nächsten
-                    Kategorie</a>
+                <div id="display-logging" class="endcard-text">Weiter zur nächsten Kategorie</div>
+                <a href="#docker-desktop" class="button-main button-primary" onclick="addListHighlight ('list-local','list-logging'), updateProgressbar(10)"> Weiter</a>
             </div>
 
             <div class="item" id="docker-desktop">
@@ -866,7 +854,7 @@
                     Für die Unterstützung der Implementierung wurden Cheatsheets zu Docker und Kubernetes erstellt.
                 </p>
                 <div id="display-local"></div>
-                <a class="button-main button-decision" onclick="createPdf()"> pdf erstellen</a>
+                <a class="button-main button-primary" onclick="createPdf()"> pdf erstellen</a>
             </div>
 
 
